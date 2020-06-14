@@ -1,0 +1,150 @@
+{
+  "name": "routes",
+  "supportKongVersions": [
+    "1.2"
+  ],
+  "description": "Route entities define rules to match client requests. Each Route is\nassociated with a Service, and a Service may have multiple Routes associated to\nit. Every request matching a given Route will be proxied to its associated\nService",
+  "fields": [
+    {
+      "name": "name",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The name of the Route."
+    },
+    {
+      "name": "protocols",
+      "component": "SelectMultiple",
+      "options": [
+        "http",
+        "https"
+      ],
+      "type": "string",
+      "value": [
+        "http",
+        "https"
+      ],
+      "restrict": "",
+      "help": "A list of the protocols this Route should allow. When set to <code class=\"highlighter-rouge\">[\"https\"]</code>, HTTP requests are answered with a request to upgrade to HTTPS.  Defaults to <code class=\"highlighter-rouge\">[\"http\", \"https\"]</code>."
+    },
+    {
+      "name": "methods",
+      "component": "SelectMultiple",
+      "options": [
+        "GET",
+        "POST",
+        "OPTIONS",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "HEAD",
+        "TRACE",
+        "LOCK",
+        "MKCOL",
+        "COPY",
+        "MOVE"
+      ],
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A list of HTTP methods that match this Route. When using <code class=\"highlighter-rouge\">http</code> or <code class=\"highlighter-rouge\">https</code> protocols, at least one of <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">paths</code>, or <code class=\"highlighter-rouge\">methods</code> must be set."
+    },
+    {
+      "name": "hosts",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A list of domain names that match this Route. When using <code class=\"highlighter-rouge\">http</code> or <code class=\"highlighter-rouge\">https</code> protocols, at least one of <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">paths</code>, or <code class=\"highlighter-rouge\">methods</code> must be set.  With form-encoded, the notation is <code class=\"highlighter-rouge\">hosts[]=example.com&amp;hosts[]=foo.test</code>. With JSON, use an Array."
+    },
+    {
+      "name": "paths",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A list of paths that match this Route. When using <code class=\"highlighter-rouge\">http</code> or <code class=\"highlighter-rouge\">https</code> protocols, at least one of <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">paths</code>, or <code class=\"highlighter-rouge\">methods</code> must be set.  With form-encoded, the notation is <code class=\"highlighter-rouge\">paths[]=/foo&amp;paths[]=/bar</code>. With JSON, use an Array."
+    },
+    {
+      "name": "https_redirect_status_code",
+      "component": "Select",
+      "options": [
+        426,
+        301,
+        302,
+        307,
+        308
+      ],
+      "type": "number",
+      "value": 426,
+      "restrict": "",
+      "help": "The status code Kong responds with when all properties of a Route match except the protocol i.e. if the protocol of the request is <code class=\"highlighter-rouge\">HTTP</code> instead of <code class=\"highlighter-rouge\">HTTPS</code>. <code class=\"highlighter-rouge\">Location</code> header is injected by Kong if the field is set to 301, 302, 307 or 308.  Accepted values are: <code class=\"highlighter-rouge\">426</code>, <code class=\"highlighter-rouge\">301</code>, <code class=\"highlighter-rouge\">302</code>, <code class=\"highlighter-rouge\">307</code>, <code class=\"highlighter-rouge\">308</code>.  Defaults to <code class=\"highlighter-rouge\">426</code>."
+    },
+    {
+      "name": "regex_priority",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "A number used to choose which route resolves a given request when several routes match it using regexes simultaneously. When two routes match the path and have the same <code class=\"highlighter-rouge\">regex_priority</code>, the older one (lowest <code class=\"highlighter-rouge\">created_at</code>) is used. Note that the priority for non-regex routes is different (longer non-regex routes are matched before shorter ones).  Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "strip_path",
+      "component": "Switch",
+      "type": "boolean",
+      "value": true,
+      "restrict": "optional",
+      "help": "When matching a Route via one of the <code class=\"highlighter-rouge\">paths</code>, strip the matching prefix from the upstream request URL.  Defaults to <code class=\"highlighter-rouge\">true</code>."
+    },
+    {
+      "name": "preserve_host",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "When matching a Route via one of the <code class=\"highlighter-rouge\">hosts</code> domain names, use the request <code class=\"highlighter-rouge\">Host</code> header in the upstream request headers. If set to <code class=\"highlighter-rouge\">false</code>, the upstream <code class=\"highlighter-rouge\">Host</code> header will be that of the Service’s <code class=\"highlighter-rouge\">host</code>."
+    },
+    {
+      "name": "snis",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A list of SNIs that match this Route when using stream routing. When using <code class=\"highlighter-rouge\">tcp</code> or <code class=\"highlighter-rouge\">tls</code> protocols, at least one of <code class=\"highlighter-rouge\">snis</code>, <code class=\"highlighter-rouge\">sources</code>, or <code class=\"highlighter-rouge\">destinations</code> must be set."
+    },
+    {
+      "name": "sources",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A list of IP sources of incoming connections that match this Route when using stream routing. Each entry is an object with fields “ip” (optionally in CIDR range notation) and/or “port”. When using <code class=\"highlighter-rouge\">tcp</code> or <code class=\"highlighter-rouge\">tls</code> protocols, at least one of <code class=\"highlighter-rouge\">snis</code>, <code class=\"highlighter-rouge\">sources</code>, or <code class=\"highlighter-rouge\">destinations</code> must be set."
+    },
+    {
+      "name": "destinations",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A list of IP destinations of incoming connections that match this Route when using stream routing. Each entry is an object with fields “ip” (optionally in CIDR range notation) and/or “port”. When using <code class=\"highlighter-rouge\">tcp</code> or <code class=\"highlighter-rouge\">tls</code> protocols, at least one of <code class=\"highlighter-rouge\">snis</code>, <code class=\"highlighter-rouge\">sources</code>, or <code class=\"highlighter-rouge\">destinations</code> must be set."
+    },
+    {
+      "name": "tags",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "optional",
+      "help": "An optional set of strings associated with the Route, for grouping and filtering."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/services/{$scope_parent_entity_data.id}/routes"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/routes/{id}"
+    }
+  }
+}

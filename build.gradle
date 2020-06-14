@@ -1,0 +1,71 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'org.mym.ksuite'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven { url "https://plugins.gradle.org/m2/" }
+    mavenCentral()
+}
+
+ext {
+    moduleName = "ksuite"
+    nodeProjectDir = "src/main/frontend"
+    nodeManager = "npm"
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+    implementation('org.springframework.boot:spring-boot-starter-validation')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    runtime('org.springframework.boot:spring-boot-devtools') {
+        exclude group: 'org.apache.tomcat', module: 'tomcat-jdbc'
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-ldap', version: '2.3.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-ldap', version: '5.3.3.RELEASE'
+    implementation "com.google.guava:guava:23.5-jre"
+    implementation "org.apache.commons:commons-lang3:3.7"
+    implementation "commons-collections:commons-collections:3.2.2"
+    implementation "commons-io:commons-io:2.6"
+    implementation "com.alibaba:fastjson:1.2.69"
+    implementation "com.squareup.okhttp3:okhttp:3.9.1"
+
+    compileOnly "org.projectlombok:lombok:1.18.4"
+    annotationProcessor "org.projectlombok:lombok:1.18.4"
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+task npmBuild(type: Exec) {
+    workingDir = file(nodeProjectDir)
+    commandLine nodeManager, "run", "build"
+}
+
+task npmInstall(type: Exec) {
+    workingDir = file(nodeProjectDir)
+    commandLine nodeManager, "install"
+}
+
+task frontendAssemble(type: Copy) {
+    def buildDir = file("$nodeProjectDir/build")
+    from buildDir
+    into "src/main/resources/frontend"
+}
+
+if (project.hasProperty("node.build")) {
+    frontendAssemble.dependsOn 'npmBuild'
+}
+
+if (project.hasProperty("node.install")) {
+    npmBuild.dependsOn 'npmInstall'
+}
+
+processResources.dependsOn 'frontendAssemble'

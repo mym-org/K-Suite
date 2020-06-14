@@ -1,0 +1,10 @@
+.icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #464646;
+  text-align: center;
+}

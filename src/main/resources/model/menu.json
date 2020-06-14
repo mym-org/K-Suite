@@ -1,0 +1,124 @@
+[
+  {
+    "name": "INFO",
+    "icon": "info-circle",
+    "url": "/info",
+    "supportKongVersions": []
+  },
+  {
+    "name": "CONSUMERS",
+    "icon": "user",
+    "url": "/consumers",
+    "supportKongVersions": []
+  },
+  {
+    "name": "PLUGINS",
+    "icon": "api",
+    "url": "/plugins",
+    "supportKongVersions": []
+  },
+  {
+    "name": "UPSTREAMS",
+    "icon": "database",
+    "url": "/upstreams",
+    "supportKongVersions": []
+  },
+  {
+    "name": "APIS",
+    "icon": "cloud",
+    "url": "/apis",
+    "supportKongVersions": [
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.5",
+      "0.6",
+      "0.7",
+      "0.8",
+      "0.9",
+      "0.10",
+      "0.11",
+      "0.12"
+    ]
+  },
+  {
+    "name": "SERVICES",
+    "icon": "cloud",
+    "url": "/services",
+    "supportKongVersions": [
+      "0.13",
+      "0.14",
+      "1.0",
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "2.0"
+    ]
+  },
+  {
+    "name": "ROUTES",
+    "icon": "fork",
+    "url": "/routes",
+    "supportKongVersions": [
+      "0.13",
+      "0.14",
+      "1.0",
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "2.0"
+    ]
+  },
+  {
+    "name": "CERTIFICATES",
+    "icon": "credit-card",
+    "url": "/certificates",
+    "supportKongVersions": [
+      "0.11",
+      "0.12",
+      "0.13",
+      "0.14",
+      "1.0",
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "2.0"
+    ]
+  },
+  {
+    "name": "SNIS",
+    "icon": "snippets",
+    "url": "/snis",
+    "supportKongVersions": [
+      "0.11",
+      "0.12",
+      "0.13",
+      "0.14",
+      "1.0",
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "2.0"
+    ]
+  },
+  {
+    "name": "TAGS",
+    "icon": "tags",
+    "url": "/tags",
+    "supportKongVersions": [
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "2.0"
+    ]
+  }
+]

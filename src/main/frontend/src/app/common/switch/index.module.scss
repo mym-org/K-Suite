@@ -1,0 +1,35 @@
+//开关
+.switch {
+  width: 88px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  position: relative;
+  overflow: hidden;
+  &:hover{
+    border-color:#1abb9c;
+  }
+ 
+  .container {
+    width:129px ;
+    transition: margin-left 1s;
+    span{
+      display: block;
+      float:left;
+      width:43px;
+      height:28px;
+      line-height: 28px;
+      text-align: center; 
+      &.yes{
+        background: #1abb9c;
+        color: #fff;
+      }
+      &.no{
+        background: #eee;
+        color: #000;
+      }
+      
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "name": "oauth2",
+  "supportKongVersions": ["1.2"],
+  "description": "",
+  "showPageTitleBar": false,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/consumers/{$scope_parent_entity_data.id}/oauth2",
+    "method": "GET",
+    "searchTarget": "OAUTH2"
+  },
+  "buttons": [
+    {
+      "icon": "plus",
+      "text": "CREATE CREDENTIALS",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "oauth2",
+        "config": {
+          "entityName": "oauth2"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "name",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "name"
+      }
+    },
+    {
+      "title": "client_id",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "client_id"
+      }
+    },
+    {
+      "title": "redirect_uris",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "redirect_uris",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "created",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date2"
+        }
+      }
+    },
+    {
+      "title": "ACTIONS",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "bianji",
+            "text": "edit",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityCreateUpdateModal",
+              "modalName": "oauth2",
+              "config": {
+                "editable": true,
+                "entityName": "oauth2",
+                "entityIdFieldName": "id",
+                "loadAPI": {
+                  "url": "/consumers/{consumer.id}/oauth2/{id}",
+                  "method": "GET"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm":"Are you sure to delete it?",
+            "api": {
+              "url": "/consumers/{consumer.id}/oauth2/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

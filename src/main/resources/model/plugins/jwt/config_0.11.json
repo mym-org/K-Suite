@@ -1,0 +1,74 @@
+{
+  "name": "jwt",
+  "version": "0.1.x",
+  "functionality": "Authentication",
+  "icon": "/images/plugins/jwt.png",
+  "hubDesc": "Verify and authenticate JSON Web Tokens",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "description": "Verify requests containing HS256 or RS256 signed JSON Web Tokens (as specified in RFC 7519). Each of your Consumers will have JWT credentials (public and secret keys) which must be used to sign their JWTs.",
+  "no_consumer": true,
+  "fields": [
+    {
+      "name": "uri_param_names",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": "jwt",
+      "restrict": "optional",
+      "help": "A list of querystring parameters that Kong will inspect to retrieve JWTs."
+    },
+    {
+      "name": "claims_to_verify",
+      "component": "SelectMultiple",
+      "options": [
+        "exp",
+        "nbf"
+      ],
+      "type": "string",
+      "restrict": "optional",
+      "help": "A list of registered claims (according to RFC 7519) that Kong can verify as well. Accepted values: exp, nbf."
+    },
+    {
+      "name": "key_claim_name",
+      "component": "Input",
+      "type": "string",
+      "value": "iss",
+      "restrict": "optional",
+      "help": "The name of the claim in which the key identifying the secret must be passed. Starting with version 0.13.1, the plugin will attempt to read this claim from the JWT payload and the header, in this order."
+    },
+    {
+      "name": "secret_is_base64",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "If true, the plugin assumes the credential’s secret to be base64 encoded. You will need to create a base64 encoded secret for your Consumer, and sign your JWT with the original secret."
+    },
+    {
+      "name": "anonymous",
+      "component": "SelectConsumer",
+      "type": "String",
+      "restrict": "optional",
+      "help": "An optional string (consumer uuid) value to use as an “anonymous” consumer if authentication fails. If empty (default), the request will fail with an authentication failure 4xx. Please note that this value must refer to the Consumer id attribute which is internal to Kong, and not its custom_id."
+    },
+    {
+      "name": "run_on_preflight",
+      "component": "Switch",
+      "type": "boolean",
+      "value": true,
+      "restrict": "optional",
+      "help": "A boolean value that indicates whether the plugin should run (and try to authenticate) on OPTIONS preflight requests, if set to false then OPTIONS requests will always be allowed."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

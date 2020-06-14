@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 7200s
+spring:
+  resources:
+    static-locations: classpath:frontend/
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  session:
+    store-type: NONE
+  thymeleaf:
+    cache: false
+    prefix: classpath:/frontend/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  main:
+    allow-bean-definition-overriding: true
+  customized:
+    kong:
+      admin_endpoint: ${KONG_ADMIN_ENDPOINT:https://10.19.15.33:36000}
+      name: ${KONG_NAME:最新版本测试网关}
+    suite:
+      auth_type: ${AUTH_TYPE:ldap}
+      local_users: ${LOCAL_USERS:yourname@asiainfo.com##true##$2a$10$ar69iI1HwW9rAKwun0wDteeHzRVUmRaV7EH30a/lymgU0yHPz757q}
+      local_users_file: ${LOCAL_USERS_FILE:file:/path/local_users.json}
+  ldap:
+    urls: ${LDAP_URLS:ldap://ldap.domain.com}
+    base: ${LDAP_BASE:dc=dc,dc=com}
+logging:
+  level:
+    com.alibaba: warn
+    org.springframework.security: error

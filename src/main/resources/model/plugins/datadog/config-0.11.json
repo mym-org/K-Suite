@@ -1,0 +1,57 @@
+{
+  "name": "datadog",
+  "functionality": "",
+  "icon": "/images/plugins/datadog.png",
+  "hubDesc": "Visualize metrics on Datadog",
+  "description": "Log metrics for a Service, Route to a local Datadog agent.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "host",
+      "component": "Input",
+      "type": "string",
+      "value": "127.0.0.1",
+      "restrict": "optional",
+      "help": "The IP address or host name to send data to."
+    },
+    {
+      "name": "port",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 8125,
+      "restrict": "optional",
+      "help": "The port to send data to on the upstream server"
+    },
+    {
+      "name": "metrics",
+      "component": "Input",
+      "type": "string",
+      "value": "All metrics are logged",
+      "restrict": "optional",
+      "help": "List of Metrics to be logged. Available values are described at Metrics."
+    },
+    {
+      "name": "prefix",
+      "component": "Input",
+      "type": "string",
+      "value": "kong",
+      "restrict": "optional",
+      "help": "String to be attached as prefix to metric’s name."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

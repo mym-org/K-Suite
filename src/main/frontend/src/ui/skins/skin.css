@@ -1,0 +1,57 @@
+html,
+body {
+    min-width: 1200px;
+}
+
+.ant-table {
+    border-radius: 3px; /* 设置圆角 */
+    background-color: #fff; /* 表格背景 */
+}
+
+.ant-table .ant-table-thead > tr > th,
+.ant-table .ant-table-tbody > tr > td{
+    text-align: center;
+}
+
+.ant-table-tbody > tr:nth-child(even),
+.ant-table-placeholder {
+    background-color: #f6f6f4; /* 表格奇数行加上背景色 */
+}
+
+.ant-form-item-control,
+.ant-form-item-label {
+    line-height: inherit!important;
+}
+
+.s-primary {
+    color: #108bee; /* 凸显 */
+}
+
+.s-bg-success {
+    background-color: #5cb85c;
+}
+
+.s-bg-error,
+.s-bg-danger {
+    background-color: #d9534f;
+}
+
+.s-bg-dark {
+    background-color: #999;
+}
+
+.s-active-1 > *  {
+    color: #108bee ;
+    border: 1px solid #108bee;
+    border-radius: 2px;
+}
+
+.s-active-1:active > * {
+    color: #fff;
+    background-color: #108bee;
+}
+.ant-input-disabled{
+    background-color: #f5f5f5 !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+

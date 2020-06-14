@@ -1,0 +1,124 @@
+{
+  "name": "response-ratelimiting",
+  "functionality": "Traffic Control",
+  "icon": "/images/plugins/response-ratelimiting.png",
+  "supportKongVersions":["2.0"],
+  "hubDesc": "Rate-Limiting based on a custom response header value",
+  "description": "This plugin allows you to limit the number of requests a developer can make based on a custom response header returned by the upstream service. You can arbitrary set as many rate-limiting objects (or quotas) as you want and instruct Kong to increase or decrease them by any number of units. Each custom rate-limiting object can limit the inbound requests per seconds, minutes, hours, days, months or years.\n\nIf the underlying Service/Route (or deprecated API entity) has no authentication layer, the Client IP address will be used, otherwise the Consumer will be used if an authentication plugin has been configured.",
+  "scopeToConsumerIdField": {
+    "name": "consumer.id"
+  },
+  "fields": [
+    {
+      "name": "limits",
+      "component": "InputJSON",
+      "type": "String",
+      "value": {},
+      "restrict": "optional",
+      "help": "This is a list of custom objects that you can set, with arbitrary names set in the <code class=\"highlighter-rouge\">{limit_name</code>} placeholder, like <code class=\"highlighter-rouge\">config.limits.sms.minute=20</code> if your object is called “SMS”."
+    },
+    {
+      "name": "header_name",
+      "component": "Input",
+      "type": "String",
+      "value": "X-Kong-Limit",
+      "restrict": "optional",
+      "help": "The name of the response header used to increment the counters."
+    },
+    {
+      "name": "block_on_first_violation",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "A boolean value that determines if the requests should be blocked as soon as one limit is being exceeded. This will block requests that are supposed to consume other limits too."
+    },
+    {
+      "name": "limit_by",
+      "component": "Select",
+      "type": "string",
+      "value": "consumer",
+      "restrict": "optional",
+      "options": [
+        "consumer",
+        "credential",
+        "ip"
+      ],
+      "help": "The entity that will be used when aggregating the limits: consumer, credential, ip. If the consumer or the credential cannot be determined, the system will always fallback to ip."
+    },
+    {
+      "name": "policy",
+      "component": "Select",
+      "type": "string",
+      "value": "cluster",
+      "restrict": "optional",
+      "options": [
+        "local",
+        "cluster",
+        "redis"
+      ],
+      "help": "The rate-limiting policies to use for retrieving and incrementing the limits. Available values are local (counters will be stored locally in-memory on the node), cluster (counters are stored in the datastore and shared across the nodes) and redis (counters are stored on a Redis server and will be shared across the nodes)."
+    },
+    {
+      "name": "fault_tolerant",
+      "component": "Switch",
+      "type": "boolean",
+      "value": true,
+      "restrict": "optional",
+      "help": "A boolean value that determines if the requests should be proxied even if Kong has troubles connecting a third-party datastore. If true requests will be proxied anyways effectively disabling the rate-limiting function until the datastore is working again. If false then the clients will see 500 errors."
+    },
+    {
+      "name": "hide_client_headers",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Optionally hide informative response headers."
+    },
+    {
+      "name": "redis_host",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "When using the redis policy, this property specifies the address to the Redis server."
+    },
+    {
+      "name": "redis_port",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies the port of the Redis server."
+    },
+    {
+      "name": "redis_password",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies the password to connect to the Redis server."
+    },
+    {
+      "name": "redis_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies the timeout in milliseconds of any command submitted to the Redis server."
+    },
+    {
+      "name": "redis_database",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies Redis database to use."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

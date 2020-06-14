@@ -1,0 +1,44 @@
+{
+  "name": "consumers",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "description": "The Consumer object represents a consumer - or a user - of an API",
+  "fields": [
+    {
+      "name": "created_at",
+      "component": "InputHidden",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "component": "InputHidden",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "username",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "The unique username of the consumer. You must send either this field or <code class=\"highlighter-rouge\">custom_id</code> with the request."
+    },
+    {
+      "name": "custom_id",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "Field for storing an existing unique ID for the consumer - useful for mapping Kong with users in your existing database. You must send either this field or <code class=\"highlighter-rouge\">username</code> with the request."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/consumers"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/consumers/{id}"
+    }
+  }
+}

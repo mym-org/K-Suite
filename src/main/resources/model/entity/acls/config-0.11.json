@@ -1,0 +1,22 @@
+{
+  "name": "acls",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "description": "You can have more than one group associated to a consumer.",
+  "fields": [
+    {
+      "name": "group",
+      "component": "Input",
+      "type": "string",
+      "restrict": "required",
+      "help": "The arbitrary group name to associate to the consumer."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/consumers/{$scope_parent_entity_data.id}/acls"
+    }
+  }
+}

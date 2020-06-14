@@ -1,0 +1,104 @@
+body {
+  cursor: default;
+  font-family: Montserrat-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-y: auto;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  color: #445862;
+  letter-spacing: normal;
+}
+
+/*label下层斜体辅助语*/
+.grey-italic-text {
+  color: #9aafb9;
+  font-style: italic;
+}
+
+/*灰色辅助提示语*/
+.grey-text {
+  color: #a6a6a6;
+  margin-top: 5px;
+}
+
+/*提示语中红色code格式*/
+.code-text {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 3px;
+}
+
+/*普通label样式*/
+.label-text {
+  text-align: right;
+  font-weight: 700;
+}
+
+/*列表的detail按钮*/
+.detail {
+  color: #1abb9c;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.delete {
+  color: #f7464a;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.marT15 {
+  margin-top: 15px;
+}
+
+.marR15 {
+  margin-right: 15px;
+}
+
+.marB15 {
+  margin-bottom: 15px;
+}
+
+/*json格式化*/
+.jsonStyle {
+  white-space: pre-wrap;
+}
+
+.icon-size20 {
+  font-size: 20px;
+}
+
+.flr {
+  float: right;
+}
+
+.clickAble {
+  cursor: pointer;
+}
+
+.marl10 {
+  margin-left: 10px;
+}
+
+.bg-light-grey {
+  background-color: #ededed;
+  color: #bbbbbb;
+  margin: -24px -24px 24px -24px;
+  padding: 15px;
+}
+
+.primaryBlue {
+  color: #108bee;
+}
+
+.primaryGreen {
+  color: #1abb9c;
+}
+
+.footerLink {
+  color: #5a738e;
+  padding: 6px;
+}
+
+

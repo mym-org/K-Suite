@@ -1,0 +1,59 @@
+{
+  "name": "http-log",
+  "functionality": "Logging",
+  "icon": "/images/plugins/http-log.png",
+  "hubDesc": "Send request and response logs to an HTTP server",
+  "description": "Send request and response logs to an HTTP server.",
+  "supportKongVersions": ["2.0"],
+  "scopeToConsumerIdField": {
+    "name": "consumer.id"
+  },
+  "fields": [
+    {
+      "name": "http_endpoint",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The HTTP endpoint (including the protocol to use) to which the data will be sent."
+    },
+    {
+      "name": "method",
+      "component": "Select",
+      "type": "string",
+      "value": "POST",
+      "restrict": "optional",
+      "options": [
+        "POST",
+        "PUT",
+        "PATCH"
+      ],
+      "help": "An optional method used to send data to the http server, other supported values are PUT, PATCH"
+    },
+    {
+      "name": "timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 10000,
+      "restrict": "optional",
+      "help": "An optional timeout in milliseconds when sending data to the upstream server"
+    },
+    {
+      "name": "keepalive",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "An optional value in milliseconds that defines for how long an idle connection will live before being closed"
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

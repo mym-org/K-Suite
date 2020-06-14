@@ -1,0 +1,52 @@
+{
+  "name": "oauth2",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "description": "You can finally provision new OAuth 2.0 credentials (also called “OAuth applications”) ",
+  "no_consumer": true,
+  "fields": [
+    {
+      "name": "name",
+      "component": "Input",
+      "type": "string",
+      "restrict": "required",
+      "help": "The name to associate to the credential. In OAuth 2.0 this would be the application name."
+    },
+    {
+      "name": "client_id",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "You can optionally set your own unique <code class=\"highlighter-rouge\">client_id</code>. If missing, the plugin will generate one."
+    },
+    {
+      "name": "client_secret",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "You can optionally set your own unique <code class=\"highlighter-rouge\">client_secret</code>. If missing, the plugin will generate one."
+    },
+    {
+      "name": "redirect_uris",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "required",
+      "help": "An array with one or more URLs in your app where users will be sent after authorization (<a href=\"https://tools.ietf.org/html/rfc6749#section-3.1.2\">RFC 6742 Section 3.1.2</a>)"
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/consumers/{$scope_parent_entity_data.id}/oauth2"
+    },
+    "update": {
+      "method": "DELETE",
+      "url": "/consumers/{$scope_parent_entity_data.id}/oauth2/{id}",
+      "next": {
+        "method": "POST",
+        "url": "/consumers/{$scope_parent_entity_data.id}/oauth2"
+      }
+    }
+  }
+}

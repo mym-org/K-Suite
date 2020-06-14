@@ -1,0 +1,33 @@
+{
+  "name": "ca-certificate",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "description": "A CA certificate object represents a trusted CA. These objects are used by Kong to verify the validity of a client or server certificate.",
+  "fields": [
+    {
+      "name": "cert",
+      "component": "Input",
+      "type": "string",
+      "restrict": "",
+      "help": "PEM-encoded public certificate of the CA."
+    },
+    {
+      "name": "tags",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "An optional set of strings associated with the Certificate, for grouping and filtering."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/ca_certificates/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/ca_certificates/{id}"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# misc
+
+
+.idea
+.gradle
+/build/
+.classpath
+.project
+.DS_Store
+*/.DS_Store
+
+
+.vscode
+/bin/
+.

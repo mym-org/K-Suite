@@ -1,0 +1,83 @@
+{
+  "name": "cors",
+  "functionality": "Security",
+  "icon": "/images/plugins/cors.png",
+  "version": "0.1.x",
+  "hubDesc": "Allow developers to make requests from the browser",
+  "description": "Easily add Cross-origin resource sharing (CORS) to a Service, a Route by enabling this plugin.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "no_consumer": true,
+  "fields": [
+    {
+      "name": "origins",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of allowed domains for the Access-Control-Allow-Origin header. If you wish to allow all origins, add * as a single value to this configuration field. The accepted values can either be flat strings or PCRE regexes. NOTE: Prior to Kong 0.10.x, this parameter was config.origin (note the change in trailing s), and only accepted a single value, or the * special value."
+    },
+    {
+      "name": "methods",
+      "component": "SelectMultiple",
+      "type": "string",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "HEAD",
+        "DELETE"
+      ],
+      "restrict": "optional",
+      "help": "Value for the Access-Control-Allow-Methods header, expects a comma delimited string (e.g. GET,POST)."
+    },
+    {
+      "name": "headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "Value for the Access-Control-Allow-Headers header, expects a comma delimited string (e.g. Origin, Authorization)."
+    },
+    {
+      "name": "exposed_headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "Value for the Access-Control-Expose-Headers header. If not specified, no custom headers are exposed."
+    },
+    {
+      "name": "credentials",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Flag to determine whether the Access-Control-Allow-Credentials header should be sent with true as the value."
+    },
+    {
+      "name": "max_age",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "Indicated how long the results of the preflight request can be cached, in seconds."
+    },
+    {
+      "name": "preflight_continue",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "A boolean value that instructs the plugin to proxy the OPTIONS preflight request to the upstream service."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

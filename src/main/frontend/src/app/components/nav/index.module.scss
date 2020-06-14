@@ -1,0 +1,105 @@
+.sider-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #2d3c4f;
+}
+
+.logo {
+  padding: 10px 20px;
+  img {
+    display: block;
+    width: 100%;
+  }
+  &.small {
+
+  }
+}
+
+.nav-container {
+  flex: 1;
+
+  .nav:global(.ant-menu) {
+    background-color: #2d3c4f;
+    //color: #fff;
+  }
+
+  :global(.ant-menu) {
+    //color: #fff;
+  }
+
+  :global(.ant-menu-dark .ant-menu-item),
+  :global(.ant-menu-dark .ant-menu-item-group-title),
+  :global(.ant-menu-dark .ant-menu-item) > a{
+    //color: #fff;
+  }
+
+  :global(.ant-menu-inline),
+  :global(.ant-menu-vertical),
+  :global(.ant-menu-vertical-left)
+  {
+    border-right: none;
+  }
+
+  :global(.ant-menu-submenu) > :global(.ant-menu) {
+    background-color: #2d3c4f;
+  }
+
+  :global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected) {
+    background-color: #172639;
+  }
+
+  :global(.ant-menu-dark .ant-menu-item-selected .anticon),
+  :global(.ant-menu-dark .ant-menu-item-selected .anticon + span) {
+    color: #1abb9c;
+  }
+
+  :global(.ant-menu-vertical .ant-menu-item:after),
+  :global(.ant-menu-vertical-left .ant-menu-item:after),
+  :global(.ant-menu-vertical-right .ant-menu-item:after),
+  :global(.ant-menu-inline .ant-menu-item:after) {
+    right: auto;
+    left: 0;
+    border-right: 3px solid #1abb9c;
+  }
+
+  :global(.ant-menu-item .crmico),
+  :global(.ant-menu-submenu-title .crmico) {
+    min-width: 14px;
+    margin-right: 10px;
+    font-size: 14px;
+    transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  :global(.ant-menu-inline-collapsed) > :global(.ant-menu-item .crmico + span),
+  :global(.ant-menu-inline-collapsed) > :global(.ant-menu-item-group) > :global(.ant-menu-item-group-list) > :global(.ant-menu-item .crmico + span),
+  :global(.ant-menu-inline-collapsed) > :global(.ant-menu-item-group) > :global(.ant-menu-item-group-list) > :global(.ant-menu-submenu) > :global(.ant-menu-submenu-title .crmico + span),
+  :global(.ant-menu-inline-collapsed) > :global(.ant-menu-submenu) > :global(.ant-menu-submenu-title .crmico + span) {
+    max-width: 0;
+    display: inline-block;
+    opacity: 0;
+  }
+
+}
+
+:global(.ant-menu-item):hover,
+:global(.ant-menu-item-active),
+:global(.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open),
+:global(.ant-menu-submenu-active),
+:global(.ant-menu-submenu-title):hover {
+  color: #1abb9c;
+}
+
+
+:global(.ant-menu-dark),
+:global(.ant-menu-dark .ant-menu-sub),
+:global(.ant-menu-submenu) > :global(.ant-menu),
+:global(.ant-menu-dark.ant-menu-submenu-popup),
+:global(.ant-menu-dark, .ant-menu-dark .ant-menu-sub) {
+  background-color: #2d3c4f;
+}
+
+:global(.ant-menu.ant-menu-dark .ant-menu-item-selected),
+:global(.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected) {
+  background-color: #172639;
+}

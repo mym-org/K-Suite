@@ -1,0 +1,32 @@
+{
+  "description": "A Kong plugin to allow access to a gRPC service via the gRPC-Web protocol. Primarily, this means JS browser apps using the gRPC-Web library.",
+  "name": "grpc-web",
+  "functionality": "Transformations",
+  "icon": "/images/plugins/grpc-web.png",
+  "hubDesc": "Allow browser clients to call gRPC services.",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer.id"
+  },
+  "fields": [
+    {
+      "name": "proto",
+      "component": "Input",
+      "type": "String",
+      "restrict": "optional",
+      "help": "If present, describes the gRPC types and methods. Required to support payload transcoding. When absent, the web client must use application/grpw-web+proto content."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

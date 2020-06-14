@@ -1,0 +1,166 @@
+html,
+body {
+  min-width: 1200px;
+}
+
+#root {
+  height: 100%;
+}
+
+.ant-checkbox-group-item:last-child {
+  width: 170px;
+  cursor: pointer;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.card-btn {
+  float: right;
+  margin-top: 10px;
+}
+
+.card-jinru {
+  font-size: 12px;
+}
+
+.module-close {
+  float: right;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+}
+
+textarea.ant-input-disabled {
+  background-color: #fff;
+}
+
+.ant-spin-container::after {
+  display: none !important;
+}
+
+.ant-table .ant-table-thead > tr > th,
+.ant-table .ant-table-tbody > tr > td {
+  line-height: 1.846;
+}
+
+.has-error .ant-form-explain,
+.has-error .ant-form-split {
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 0;
+}
+
+.ant-advanced-search-form .ant-form-item {
+  margin-bottom: 14px !important;
+}
+
+.ant-advanced-search-form .ant-form-item-with-help {
+  margin-bottom: 2px !important;
+}
+
+.ant-form-item {
+  margin-bottom: 14px;
+}
+
+/* .ant-table-tbody > tr:nth-child(even) {
+  background-color: #f6f7fc;
+} */
+
+.white-table .ant-table-tbody > tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.white-table .ant-table-thead > tr > th {
+  font-weight: 700;
+  background-color: #fff;
+}
+
+/*表头带颜色且无斑马效果的表格样式*/
+.ch-table .ant-table-thead > tr > th {
+  background-color: #e8ecf0;
+}
+
+.ch-table .ant-table-tbody > tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.break-word {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+  text-align: left !important;
+}
+
+/* 英文强制换行 */
+.word-break {
+  word-break: break-all !important;
+  word-wrap: anywhere !important;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+
+.spin-page {
+  height: 100%;
+}
+
+.spin-page > div .ant-spin {
+  max-height: 100%;
+}
+
+.spin-page .ant-spin-container {
+  height: 100%;
+}
+
+.spin-center.ant-spin-nested-loading > div > .ant-spin {
+  position: fixed;
+  top: 50%;
+  margin-top: -200px;
+}
+
+.bold700 {
+  font-weight: 700;
+}
+
+.fixDropdownMatchSelectWidth .ant-select-dropdown-menu {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.fixDropdownMatchSelectWidth .ant-select-dropdown-menu-item {
+  overflow: visible;
+  padding: 5px 20px 5px 12px;
+}
+
+.no-title-modal .ant-modal-confirm-content {
+  margin-top: 0;
+}
+ul{
+  margin: 0;
+  padding:0;
+}
+li{
+  list-style: none!important;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "key-auth",
+  "supportKongVersions": ["0.11"],
+  "description": "You can provision new credentials",
+  "fields": [
+    {
+      "name": "key",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "You can optionally set your own unique <code class=\"highlighter-rouge\">key</code> to authenticate the client. If missing, the plugin will generate one."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/consumers/{$scope_parent_entity_data.id}/key-auth"
+    }
+  }
+}

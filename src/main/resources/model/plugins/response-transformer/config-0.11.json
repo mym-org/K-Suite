@@ -1,0 +1,87 @@
+{
+  "name": "response-transformer",
+  "version": "0.1.x",
+  "functionality": "Transformations",
+  "icon": "/images/plugins/response-transformer.png",
+  "hubDesc": "Modify the upstream response before returning it to the client",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "no_consumer": true,
+  "description": "Transform the response sent by the upstream server on the fly on Kong, before returning the response to the client.",
+  "fields": [
+    {
+      "name": "remove.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of header names. Unset the header(s) with the given name."
+    },
+    {
+      "name": "remove.json",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of property names. Remove the property from the JSON body if it is present."
+    },
+    {
+      "name": "rename.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of original_header_name:new_header_name pairs. If the header <code class=\"highlighter-rouge\">original_headername</code> is already set, rename it to <code class=\"highlighter-rouge\">new_headername</code>. Ignored if the header is not already set."
+    },
+    {
+      "name": "replace.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If and only if the header is already set, replace its old value with the new one. Ignored if the header is not already set."
+    },
+    {
+      "name": "replace.json",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of property:value pairs. If and only if the parameter is already present, replace its old value with the new one. Ignored if the parameter is not already present."
+    },
+    {
+      "name": "add.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If and only if the header is not already set, set a new header with the given value. Ignored if the header is already set."
+    },
+    {
+      "name": "add.json",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of property:value pairs. If and only if the property is not present, add a new property with the given value to the JSON body. Ignored if the property is already present."
+    },
+    {
+      "name": "append.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If the header is not set, set it with the given value. If it is already set, a new header with the same name and the new value will be set."
+    },
+    {
+      "name": "append.json",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of property:value pairs. If the property is not present in the JSON body, add it with the given value. If it is already present, the two values (old and new) will be aggregated in an array."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

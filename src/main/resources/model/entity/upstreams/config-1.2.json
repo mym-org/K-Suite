@@ -1,0 +1,374 @@
+{
+  "name": "upstreams",
+  "supportKongVersions": [
+    "1.2"
+  ],
+  "description": "The upstream object represents a virtual hostname and can be used to load balance incoming requests over multiple services (targets)",
+  "fields": [
+    {
+      "name": "name",
+      "component": "Input",
+      "type": "string",
+      "restrict": "required",
+      "help": "This is a hostname, which must be equal to the <code class=\"highlighter-rouge\">host</code> of a Service."
+    },
+    {
+      "name": "hash_on",
+      "component": "Select",
+      "options": [
+        "none",
+        "consumer",
+        "ip",
+        "header",
+        "cookie"
+      ],
+      "type": "string",
+      "value": "none",
+      "restrict": "optional",
+      "help": "What to use as hashing input. Using <code class=\"highlighter-rouge\">none</code> results in a weighted-round-robin scheme with no hashing. Accepted values are: <code class=\"highlighter-rouge\">\"none\"</code>, <code class=\"highlighter-rouge\">\"consumer\"</code>, <code class=\"highlighter-rouge\">\"ip\"</code>, <code class=\"highlighter-rouge\">\"header\"</code>, <code class=\"highlighter-rouge\">\"cookie\"</code>.  Defaults to <code class=\"highlighter-rouge\">\"none\"</code>."
+    },
+    {
+      "name": "hash_fallback",
+      "component": "Select",
+      "options": [
+        "none",
+        "consumer",
+        "ip",
+        "header",
+        "cookie"
+      ],
+      "type": "string",
+      "value": "none",
+      "restrict": "optional",
+      "help": "What to use as hashing input if the primary <code class=\"highlighter-rouge\">hash_on</code> does not return a hash (eg. header is missing, or no consumer identified). Not available if <code class=\"highlighter-rouge\">hash_on</code> is set to <code class=\"highlighter-rouge\">cookie</code>. Accepted values are: <code class=\"highlighter-rouge\">\"none\"</code>, <code class=\"highlighter-rouge\">\"consumer\"</code>, <code class=\"highlighter-rouge\">\"ip\"</code>, <code class=\"highlighter-rouge\">\"header\"</code>, <code class=\"highlighter-rouge\">\"cookie\"</code>.  Defaults to <code class=\"highlighter-rouge\">\"none\"</code>."
+    },
+    {
+      "name": "hash_on_header",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "The header name to take the value from as hash input. Only required when <code class=\"highlighter-rouge\">hash_on</code> is set to <code class=\"highlighter-rouge\">header</code>."
+    },
+    {
+      "name": "hash_fallback_header",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "The header name to take the value from as hash input. Only required when <code class=\"highlighter-rouge\">hash_fallback</code> is set to <code class=\"highlighter-rouge\">header</code>."
+    },
+    {
+      "name": "hash_on_cookie",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "The cookie name to take the value from as hash input. Only required when <code class=\"highlighter-rouge\">hash_on</code> or <code class=\"highlighter-rouge\">hash_fallback</code> is set to <code class=\"highlighter-rouge\">cookie</code>. If the specified cookie is not in the request, Kong will generate a value and set the cookie in the response."
+    },
+    {
+      "name": "hash_on_cookie_path",
+      "component": "Input",
+      "type": "string",
+      "value": "/",
+      "restrict": "semi-optional",
+      "help": "The cookie path to set in the response headers. Only required when <code class=\"highlighter-rouge\">hash_on</code> or <code class=\"highlighter-rouge\">hash_fallback</code> is set to <code class=\"highlighter-rouge\">cookie</code>. Defaults to <code class=\"highlighter-rouge\">\"/\"</code>."
+    },
+    {
+      "name": "slots",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 1000,
+      "restrict": "optional",
+      "help": "The number of slots in the loadbalancer algorithm (<code class=\"highlighter-rouge\">10</code>-<code class=\"highlighter-rouge\">65536</code>). Defaults to <code class=\"highlighter-rouge\">10000</code>."
+    },
+    {
+      "name": "healthchecks.active.https_verify_certificate",
+      "component": "Switch",
+      "type": "boolean",
+      "value": true,
+      "restrict": "optional",
+      "help": "Whether to check the validity of the SSL certificate of the remote host when performing active health checks using HTTPS. Defaults to <code class=\"highlighter-rouge\">true</code>."
+    },
+    {
+      "name": "healthchecks.active.unhealthy.http_statuses",
+      "component": "SelectMultiple",
+      "options": [
+        200,
+        201,
+        302,
+        429,
+        404,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505
+      ],
+      "type": "number",
+      "value": [
+        429,
+        404,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505
+      ],
+      "restrict": "optional",
+      "help": "An array of HTTP statuses to consider a failure, indicating unhealthiness, when returned by a probe in active health checks. Defaults to <code class=\"highlighter-rouge\">[429, 404, 500, 501, 502, 503,</code><wbr><code class=\"highlighter-rouge\"> 504, 505]</code>. With form-encoded, the notation is <code class=\"highlighter-rouge\">http_statuses[]=429&amp;http_statuses[]=404</code>. With JSON, use an Array."
+    },
+    {
+      "name": "healthchecks.active.unhealthy.tcp_failures",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of TCP failures in active probes to consider a target unhealthy. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.active.unhealthy.timeouts",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of timeouts in active probes to consider a target unhealthy. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.active.unhealthy.http_failures",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of HTTP failures in active probes (as defined by <code class=\"highlighter-rouge\">healthchecks.active.unhealthy.http_statuses</code>) to consider a target unhealthy. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.active.unhealthy.interval",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Interval between active health checks for unhealthy targets (in seconds). A value of zero indicates that active probes for unhealthy targets should not be performed. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.active.http_path",
+      "component": "Input",
+      "type": "string",
+      "value": "/",
+      "restrict": "optional",
+      "help": "Path to use in GET HTTP request to run as a probe on active health checks. Defaults to <code class=\"highlighter-rouge\">\"/\"</code>."
+    },
+    {
+      "name": "healthchecks.active.timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 1,
+      "restrict": "optional",
+      "help": "Socket timeout for active health checks (in seconds). Defaults to <code class=\"highlighter-rouge\">1</code>."
+    },
+    {
+      "name": "healthchecks.active.healthy.http_statuses",
+      "component": "SelectMultiple",
+      "options": [
+        200,
+        201,
+        302,
+        429,
+        404,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505
+      ],
+      "type": "number",
+      "value": [
+        200,
+        302
+      ],
+      "restrict": "optional",
+      "help": "An array of HTTP statuses to consider a success, indicating healthiness, when returned by a probe in active health checks. Defaults to <code class=\"highlighter-rouge\">[200, 302]</code>. With form-encoded, the notation is <code class=\"highlighter-rouge\">http_statuses[]=200&amp;http_statuses[]=302</code>. With JSON, use an Array."
+    },
+    {
+      "name": "healthchecks.active.healthy.interval",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Interval between active health checks for healthy targets (in seconds). A value of zero indicates that active probes for healthy targets should not be performed. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.active.healthy.successes",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of successes in active probes (as defined by <code class=\"highlighter-rouge\">healthchecks.active.healthy.http_statuses</code>) to consider a target healthy. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.active.https_sni",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The hostname to use as an SNI (Server Name Identification) when performing active health checks using HTTPS. This is particularly useful when Targets are configured using IPs, so that the target host’s certificate can be verified with the proper SNI."
+    },
+    {
+      "name": "healthchecks.active.concurrency",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 10,
+      "restrict": "optional",
+      "help": "Number of targets to check concurrently in active health checks. Defaults to <code class=\"highlighter-rouge\">10</code>."
+    },
+    {
+      "name": "healthchecks.active.type",
+      "component": "Select",
+      "options": [
+        "tcp",
+        "http",
+        "https",
+        "grpc",
+        "grpcs"
+      ],
+      "type": "string",
+      "value": "http",
+      "restrict": "optional",
+      "help": "Whether to perform active health checks using HTTP or HTTPS, or just attempt a TCP connection. Accepted values are: <code class=\"highlighter-rouge\">\"tcp\"</code>, <code class=\"highlighter-rouge\">\"http\"</code>, <code class=\"highlighter-rouge\">\"https\"</code>, <code class=\"highlighter-rouge\">\"grpc\"</code>, <code class=\"highlighter-rouge\">\"grpcs\"</code>.  Defaults to <code class=\"highlighter-rouge\">\"http\"</code>."
+    },
+    {
+      "name": "healthchecks.passive.unhealthy.http_failures",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of HTTP failures in proxied traffic (as defined by <code class=\"highlighter-rouge\">healthchecks.passive.unhealthy.http_statuses</code>) to consider a target unhealthy, as observed by passive health checks. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.passive.unhealthy.http_statuses",
+      "component": "SelectMultiple",
+      "options": [
+        404,
+        429,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505
+      ],
+      "type": "number",
+      "value": [
+        429,
+        500,
+        503
+      ],
+      "restrict": "optional",
+      "help": "An array of HTTP statuses which represent unhealthiness when produced by proxied traffic, as observed by passive health checks. Defaults to <code class=\"highlighter-rouge\">[429, 500, 503]</code>. With form-encoded, the notation is <code class=\"highlighter-rouge\">http_statuses[]=429&amp;http_statuses[]=500</code>. With JSON, use an Array."
+    },
+    {
+      "name": "healthchecks.passive.unhealthy.tcp_failures",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of TCP failures in proxied traffic to consider a target unhealthy, as observed by passive health checks. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.passive.unhealthy.timeouts",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of timeouts in proxied traffic to consider a target unhealthy, as observed by passive health checks. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.passive.type",
+      "component": "Select",
+      "options": [
+        "tcp",
+        "http",
+        "https",
+        "grpc",
+        "grpcs"
+      ],
+      "type": "string",
+      "value": "http",
+      "restrict": "optional",
+      "help": "Whether to perform passive health checks interpreting HTTP/HTTPS statuses, or just check for TCP connection success. In passive checks, <code class=\"highlighter-rouge\">http</code> and <code class=\"highlighter-rouge\">https</code> options are equivalent. Accepted values are: <code class=\"highlighter-rouge\">\"tcp\"</code>, <code class=\"highlighter-rouge\">\"http\"</code>, <code class=\"highlighter-rouge\">\"https\"</code>, <code class=\"highlighter-rouge\">\"grpc\"</code>, <code class=\"highlighter-rouge\">\"grpcs\"</code>.  Defaults to <code class=\"highlighter-rouge\">\"http\"</code>."
+    },
+    {
+      "name": "healthchecks.passive.healthy.successes",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 0,
+      "restrict": "optional",
+      "help": "Number of successes in proxied traffic (as defined by <code class=\"highlighter-rouge\">healthchecks.passive.healthy.http_statuses</code>) to consider a target healthy, as observed by passive health checks. Defaults to <code class=\"highlighter-rouge\">0</code>."
+    },
+    {
+      "name": "healthchecks.passive.healthy.http_statuses",
+      "component": "SelectMultiple",
+      "options": [
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        226,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ],
+      "type": "number",
+      "value": [
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        226,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ],
+      "restrict": "optional",
+      "help": "An array of HTTP statuses which represent healthiness when produced by proxied traffic, as observed by passive health checks. Defaults to <code class=\"highlighter-rouge\">[200, 201, 202, 203, 204, 205,</code><wbr><code class=\"highlighter-rouge\"> 206, 207, 208, 226, 300, 301,</code><wbr><code class=\"highlighter-rouge\"> 302, 303, 304, 305, 306, 307,</code><wbr><code class=\"highlighter-rouge\"> 308]</code>. With form-encoded, the notation is <code class=\"highlighter-rouge\">http_statuses[]=200&amp;http_statuses[]=201</code>. With JSON, use an Array."
+    },
+    {
+      "name": "tags",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "An optional set of strings associated with the Upstream, for grouping and filtering."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/upstreams"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/upstreams/{id}"
+    }
+  }
+}

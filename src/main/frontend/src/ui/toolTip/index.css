@@ -1,0 +1,114 @@
+.tooltip {
+    position: absolute; /* 默认定位 防止出现全局滚动条导致 getBoundingClientRect 获取数据不准确 */
+    top: -100%;
+    left: -100%;
+    opacity: 0;
+    z-index: 1003;
+    line-height: 18px;
+    padding: 3px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #fff;
+}
+
+.tooltip p {
+    margin: 0;
+}
+
+.tooltip.right i,
+.tooltip.right i,
+.tooltip.left i,
+.tooltip.left i{
+    position: absolute;
+    width: 6px;
+    height: 10px;
+}
+
+.tooltip.right i::after,
+.tooltip.right i::before,
+.tooltip.left i::after,
+.tooltip.left i::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.tooltip.right i {
+    left: -6px;
+}
+
+.tooltip.right i::before {
+    border-right: 5px solid #ccc;
+}
+
+.tooltip.right i::after {
+    left: 1px;
+    border-right: 5px solid #fff;
+}
+
+.tooltip.left i {
+    right: -6px;
+}
+
+.tooltip.left i::before {
+    border-left: 5px solid #ccc;
+}
+
+.tooltip.left i::after {
+    left: -1px;
+    border-left: 5px solid #fff;
+}
+
+.tooltip.top i,
+.tooltip.top i,
+.tooltip.bottom i,
+.tooltip.bottom i {
+    position: absolute;
+    width: 10px;
+    height: 6px;
+}
+
+.tooltip.top i::after,
+.tooltip.top i::before,
+.tooltip.bottom i::after,
+.tooltip.bottom i::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.tooltip.top i {
+    bottom: -6px;
+}
+.tooltip.top i::after {
+    border-top: 5px solid #fff;
+}
+
+.tooltip.top i::before {
+    top: 1px;
+    border-top: 5px solid #ccc;
+}
+
+.tooltip.bottom i {
+    top: -6px;
+}
+
+.tooltip.bottom i::after {
+    top: 1px;
+    border-bottom: 5px solid #fff;
+}
+
+.tooltip.bottom i::before {
+    border-bottom: 5px solid #ccc;
+}

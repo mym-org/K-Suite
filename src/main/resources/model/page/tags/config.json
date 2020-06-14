@@ -1,0 +1,46 @@
+{
+  "name": "tags",
+  "supportKongVersions": ["1.2","2.0"],
+  "description": "Tags are strings associated to entities in Kong. Each tag must be composed of one or more alphanumeric characters,_, -, . or~ .",
+  "showPageTitleBar": true,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/tags",
+    "method": "GET",
+    "searchTarget": "TAGS"
+  },
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "entity name",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "entity_name"
+      }
+    },
+    {
+      "title": "entity id",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "entity_id"
+
+      }
+    },
+    {
+      "title": "tag",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "tag"
+      }
+    }
+  ]
+}

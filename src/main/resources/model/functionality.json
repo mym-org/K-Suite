@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Authentication",
+    "desc": "Protect your services with an authentication layer"
+  },
+  {
+    "name": "Security",
+    "desc": "Protect your services with additional security layers"
+  },
+  {
+    "name": "Traffic Control",
+    "desc": "Transform request and responses on the fly on Kong"
+  },
+  {
+    "name": "Transformations",
+    "desc": "Protect your services with an authentication layer"
+  },
+  {
+    "name": "Logging",
+    "desc": "Log requests and response data using the best transport for your infrastructure"
+  }
+]

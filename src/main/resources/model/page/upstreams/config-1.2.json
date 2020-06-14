@@ -1,0 +1,128 @@
+{
+  "name": "upstreams",
+  "supportKongVersions": ["1.2"],
+  "description": "The upstream object represents a virtual hostname and can be used to loadbalance incoming requests over multiple services (targets). So for example an upstream named <span class=\"code-text\">service.v1.xyz</span> with an API object created with an <span class=\"code-text\">upstream_url=https://service.v1.xyz/some/path</span>. Requests for this API would be proxied to the targets defined within the upstream",
+  "showPageTitleBar": true,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/upstreams",
+    "method": "GET",
+    "searchTarget": "UPSTREAMS"
+  },
+  "buttons": [
+    {
+      "icon": "PLUS",
+      "text": "ADD UPSTREAM",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "upstream",
+        "config": {
+          "entityName": "upstreams"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "name",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "name"
+      }
+    },
+    {
+      "title": "slots",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "slots"
+      }
+    },
+    {
+      "title": "tags",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "tags",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "created at",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date2"
+        }
+      }
+    },
+    {
+      "title": "actions",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "chatou",
+            "text": "targets",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityListModal",
+              "modalName": "targets",
+              "config": {
+                "pageModelName": "targets"
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "bianji",
+            "text": "edit",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityCreateUpdateModal",
+              "modalName": "upstream",
+              "config": {
+                "editable": true,
+                "entityName": "upstreams",
+                "entityIdFieldName": "id",
+                "loadAPI": {
+                  "url": "/upstreams/{id}",
+                  "method": "GET"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm": "Are you sure to delete it?",
+            "api": {
+              "url": "/upstreams/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

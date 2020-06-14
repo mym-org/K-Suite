@@ -1,0 +1,139 @@
+{
+  "name": "apis",
+  "supportKongVersions": ["0.11"],
+  "description": "The API object describes an API that’s being exposed by Kong. Kong needs to know how to retrieve the\nAPI when a consumer is calling it from the Proxy port. Each API object must specify some combination\nof <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">uris</code>, and <code class=\"highlighter-rouge\">methods</code>. Kong will proxy all requests to the API to the specified upstream URL.",
+  "showPageTitleBar": true,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/apis",
+    "method": "GET",
+    "searchTarget": "APIS"
+  },
+  "buttons": [
+    {
+      "icon": "plus",
+      "text": "ADD API",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "api",
+        "config": {
+          "entityName": "apis"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "name",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "name"
+      }
+    },
+    {
+      "title": "uris",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "uris",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "methods",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "methods",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "upstream url",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "upstream_url"
+      }
+    },
+    {
+      "title": "created at",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date"
+        }
+      }
+    },
+    {
+      "title": "actions",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "bianji",
+            "text": "edit",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityCreateUpdateModal",
+              "modalName": "api",
+              "config": {
+                "editable": true,
+                "entityName": "apis",
+                "entityIdFieldName": "id",
+                "loadAPI": {
+                  "url": "/apis/{id}",
+                  "method": "GET"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm":"Are you sure to delete it?",
+            "api": {
+              "url": "/apis/{id}",
+              "method": "DELETE"
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "chatou",
+            "text": "plugins",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityListModal",
+              "modalName": "API's plugins",
+              "config": {
+                "pageModelName": "api.plugins"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

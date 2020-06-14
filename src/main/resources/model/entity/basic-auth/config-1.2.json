@@ -1,0 +1,27 @@
+{
+  "name": "basic-auth",
+  "supportKongVersions": ["1.2"],
+  "description": "You can provision new username/password credentials",
+  "fields": [
+    {
+      "name": "username",
+      "component": "Input",
+      "type": "string",
+      "restrict": "required",
+      "help": "The username to use in the Basic Authentication."
+    },
+    {
+      "name": "password",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The password to use in the Basic Authentication."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/consumers/{$scope_parent_entity_data.id}/basic-auth"
+    }
+  }
+}

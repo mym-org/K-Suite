@@ -1,0 +1,120 @@
+{
+  "name": "loggly",
+  "functionality": "Logging",
+  "icon": "/images/plugins/loggly.png",
+  "hubDesc": "Send request and response logs to Loggly",
+  "description": "Log request and response data over UDP to Loggly.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "host",
+      "component": "Input",
+      "type": "String",
+      "value": "logs-01.loggly.com",
+      "restrict": "optional",
+      "help": "The IP address or host name of Loggly server"
+    },
+    {
+      "name": "port",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 514,
+      "restrict": "optional",
+      "help": "The UDP port to send data to on the Loggly server"
+    },
+    {
+      "name": "key",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "Loggly customer token."
+    },
+    {
+      "name": "tags",
+      "component": "InputMultiple",
+      "type": "String",
+      "value": "kong",
+      "restrict": "optional",
+      "help": "An optional list of tags to support segmentation & filtering of logs."
+    },
+    {
+      "name": "timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 10000,
+      "restrict": "optional",
+      "help": "An optional timeout in milliseconds when sending data to the Loggly server"
+    },
+    {
+      "name": "successful_severity",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity assigned to the all successful requests with response status code 400 ."
+    },
+    {
+      "name": "client_errors_severity",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity assigned to the all failed requests with response status code 400 or higher but less than 500."
+    },
+    {
+      "name": "server_errors_severity",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity assigned to the all failed requests with response status code 500 or higher."
+    },
+    {
+      "name": "log_level",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity, any request with equal or higher severity will be logged to Loggly."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

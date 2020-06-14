@@ -1,0 +1,73 @@
+[class*="brick-modal-open"] {
+  overflow: hidden;
+}
+
+.brick-modal-dialog,
+.brick-modal-confirm,
+.brick-modal-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 30px 20px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.brick-modal-dialog.small {
+  width: 400px;
+  height: 300px;
+}
+
+.brick-modal-dialog.medium {
+  width: 600px;
+  height: 450px;
+}
+
+.brick-modal-dialog.large {
+  width: 800px;
+  height: 600px;
+}
+
+.brick-modal-dialog.full {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: auto;
+  height: auto;
+  transform: none;
+}
+
+.brick-modal-title {
+  line-height: 30px;
+  margin: 0 0 20px;
+}
+
+.brick-modal-message {
+  line-height: 24px;
+  margin: 0 0 20px;
+}
+
+.brick-modal-footer {
+  margin-right: -10px;
+  text-align: right;
+}
+
+.brick-modal-footer span {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.brick-modal-footer button {
+  height: 34px;
+  padding: 0 12px;
+  line-height: 34px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  background-color: #337ab7;
+  cursor: pointer;
+}

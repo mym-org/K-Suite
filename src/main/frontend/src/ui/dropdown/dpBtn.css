@@ -1,0 +1,40 @@
+.icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  background-color: #ed7612;
+}
+
+.icon:hover {
+  color: #464646;
+  background-color: #fff;
+}
+
+.icon i {
+  transition: transform 0.3s
+}
+
+:global(.open) .icon i {
+  transform: rotate(180deg);
+}
+
+.triangle {
+  
+}
+
+.close {
+  display: none;
+}
+
+.icon:hover .triangle {
+  display: none;
+}
+
+.icon:hover .close {
+  display: inline-block;
+}

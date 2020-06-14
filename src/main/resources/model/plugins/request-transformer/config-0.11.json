@@ -1,0 +1,144 @@
+{
+  "name": "request-transformer",
+  "functionality": "Transformations",
+  "icon": "/images/plugins/request-transformer.png",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "hubDesc": "Modify the request before hitting the upstream server",
+  "description": "Transform the request sent by a client on the fly on Kong, before hitting the upstream server.Plugin performs the response transformation in following order\n\nremove –> rename –> replace –> add –> append",
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "http_method",
+      "component": "Select",
+      "options": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT",
+        "PATCH"
+      ],
+      "type": "string",
+      "restrict": "optional",
+      "help": "Changes the HTTP method for the upstream request."
+    },
+    {
+      "name": "remove.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of header names. Unset the header(s) with the given name."
+    },
+    {
+      "name": "remove.querystring",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of querystring names. Remove the querystring if it is present."
+    },
+    {
+      "name": "remove.body",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of parameter names. Remove the parameter if and only if content-type is one the following [<code class=\"highlighter-rouge\">application/json</code>, <code class=\"highlighter-rouge\">multipart/form-data</code>,  <code class=\"highlighter-rouge\">application/x-www-form-urlencoded</code>] and parameter is present."
+    },
+    {
+      "name": "replace.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If and only if the header is already set, replace its old value with the new one. Ignored if the header is not already set."
+    },
+    {
+      "name": "replace.querystring",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of queryname:value pairs. If and only if the field name is already set, replace its old value with the new one. Ignored if the field name is not already set."
+    },
+    {
+      "name": "rename.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If and only if the header is already set, rename the header. The value is unchanged. Ignored if the header is not already set."
+    },
+    {
+      "name": "rename.querystring",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of queryname:value pairs. If and only if the field name is already set, rename the field name. The value is unchanged. Ignored if the field name is not already set."
+    },
+    {
+      "name": "rename.body",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of parameter name:value pairs. Rename the parameter name if and only if content-type is one the following [<code class=\"highlighter-rouge\">application/json</code>, <code class=\"highlighter-rouge\">multipart/form-data</code>,  <code class=\"highlighter-rouge\">application/x-www-form-urlencoded</code>] and parameter is present."
+    },
+    {
+      "name": "replace.body",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of paramname:value pairs. If and only if content-type is one the following [<code class=\"highlighter-rouge\">application/json</code>, <code class=\"highlighter-rouge\">multipart/form-data</code>, <code class=\"highlighter-rouge\">application/x-www-form-urlencoded</code>] and the parameter is already present, replace its old value with the new one. Ignored if the parameter is not already present."
+    },
+    {
+      "name": "add.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If and only if the header is not already set, set a new header with the given value. Ignored if the header is already set."
+    },
+    {
+      "name": "add.querystring",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of queryname:value pairs. If and only if the querystring is not already set, set a new querystring with the given value. Ignored if the header is already set."
+    },
+    {
+      "name": "add.body",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of pramname:value pairs. If and only if content-type is one the following [<code class=\"highlighter-rouge\">application/json</code>, <code class=\"highlighter-rouge\">multipart/form-data</code>, <code class=\"highlighter-rouge\">application/x-www-form-urlencoded</code>] and the parameter is not present, add a new parameter with the given value to form-encoded body. Ignored if the parameter is already present."
+    },
+    {
+      "name": "append.headers",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of headername:value pairs. If the header is not set, set it with the given value. If it is already set, an additional new header with the same name and the new value will be appended."
+    },
+    {
+      "name": "append.querystring",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of queryname:value pairs. If the querystring is not set, set it with the given value. If it is already set, a new querystring with the same name and the new value will be set."
+    },
+    {
+      "name": "append.body",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "List of paramname:value pairs. If the content-type is one the following [<code class=\"highlighter-rouge\">application/json</code>, <code class=\"highlighter-rouge\">application/x-www-form-urlencoded</code>], add a new parameter with the given value if the parameter is not present, otherwise if it is already present, the two values (old and new) will be aggregated in an array."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

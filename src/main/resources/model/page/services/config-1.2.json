@@ -1,0 +1,125 @@
+{
+  "name": "services",
+  "supportKongVersions": ["1.2"],
+  "description": "Service entities, as the name implies, are abstractions of each of your own upstream services. Examples of Services would be a data transformation microservice, a billing API, etc.",
+  "showPageTitleBar": true,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/services",
+    "method": "GET",
+    "searchTarget": "SERVICES"
+  },
+  "buttons": [
+    {
+      "icon": "PLUS",
+      "text": "ADD SERVICE",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "service",
+        "config": {
+          "entityName": "services"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "name",
+      "align": "left",
+      "field": {
+        "type": "link",
+        "fieldName": "name",
+        "config": {
+          "href": "/services/{id}",
+          "target": "_self"
+        }
+      }
+    },
+    {
+      "title": "host",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "host"
+      }
+    },
+    {
+      "title": "path",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "path"
+      }
+    },
+    {
+      "title": "tags",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "tags",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "created at",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date2"
+        }
+      }
+    },
+    {
+      "title": "actions",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "bianji",
+            "text": "edit",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityCreateUpdateModal",
+              "modalName": "service",
+              "config": {
+                "editable": true,
+                "entityName": "services",
+                "entityIdFieldName": "id",
+                "loadAPI": {
+                  "url": "/services/{id}",
+                  "method": "GET"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm": "Are you sure to delete it?",
+            "api": {
+              "url": "/services/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

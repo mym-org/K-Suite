@@ -1,0 +1,37 @@
+{
+  "name": "targets",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "description": "A target is an ip address/hostname with a port that identifies an instance of a backend service. Every upstream can have many targets, and the targets can be dynamically added. Changes are effectuated on the fly.",
+  "fields": [
+    {
+      "name": "target",
+      "component": "Input",
+      "type": "string",
+      "restrict": "required",
+      "help": "The target address (ip or hostname) and port. If the hostname resolves to an SRV record, the <code class=\"highlighter-rouge\">port</code> value will be overridden by the value from the DNS record."
+    },
+    {
+      "name": "weight",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 100,
+      "restrict": "optional",
+      "help": "The weight this target gets within the upstream loadbalancer (<code class=\"highlighter-rouge\">0</code>-<code class=\"highlighter-rouge\">1000</code>). If the hostname resolves to an SRV record, the <code class=\"highlighter-rouge\">weight</code> value will be overridden by the value from the DNS record.  Defaults to <code class=\"highlighter-rouge\">100</code>."
+    },
+    {
+      "name": "tags",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "An optional set of strings associated with the Target, for grouping and filtering."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/upstreams/{$scope_parent_entity_data.id}/targets"
+    }
+  }
+}

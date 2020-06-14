@@ -1,0 +1,46 @@
+{
+  "name": "acl",
+  "version": "1.0.x",
+  "functionality": "Traffic Control",
+  "icon": "/images/plugins/acl.png",
+  "hubDesc": "Control which consumers can access Services",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "no_consumer": true,
+  "description": "Restrict access to a Service or a Route by whitelisting or blacklisting consumers using arbitrary ACL group names.",
+  "fields": [
+    {
+      "name": "whitelist",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "Restrict access to a Service or a Route by whitelisting or blacklisting consumers using arbitrary ACL group names. This plugin requires an <a href=\"/about/faq/#how-can-i-add-authentication-to-a-microservice-api\">authentication plugin</a> to have been already enabled on the Service or Route."
+    },
+    {
+      "name": "blacklist",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "Arbitrary group names that are not allowed to consume the Service or Route. One of config.whitelist or config.blacklist must be specified."
+    },
+    {
+      "name": "hide_groups_header",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Flag which if enabled (true), prevents the X-Consumer-Groups header to be sent in the request to the upstream service."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

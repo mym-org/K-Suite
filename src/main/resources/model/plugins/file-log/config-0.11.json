@@ -1,0 +1,40 @@
+{
+  "name": "file-log",
+  "functionality": "Logging",
+  "icon": "/images/plugins/file-log.png",
+  "hubDesc": "Append request and response data to a log file on disk",
+  "description": "Append request and response data to a log file on disk.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "path",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The file path of the output log file. The plugin will create the file if it doesn’t exist yet. Make sure Kong has write permissions to this file."
+    },
+    {
+      "name": "reopen",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Introduced in Kong 0.10.2. Determines whether the log file is closed and reopened on every request. If the file is not reopened, and has been removed/rotated, the plugin will keep writing to the stale file descriptor, and hence lose information."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

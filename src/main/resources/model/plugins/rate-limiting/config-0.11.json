@@ -1,0 +1,144 @@
+{
+  "name": "rate-limiting",
+  "functionality": "Traffic Control",
+  "icon": "/images/plugins/rate-limiting.png",
+  "hubDesc": "Rate-limit how many HTTP requests a developer can make",
+  "description": "Rate limit how many HTTP requests a developer can make in a given period of seconds, minutes, hours, days, months or years. If the API has no authentication layer, the <strong>Client IP</strong> address will be used, otherwise the Consumer will be used if an authentication plugin has been configured.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "second",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "semi-optional",
+      "help": "The amount of HTTP requests the developer can make per second. At least one limit must exist."
+    },
+    {
+      "name": "minute",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "semi-optional",
+      "help": "The amount of HTTP requests the developer can make per minute. At least one limit must exist."
+    },
+    {
+      "name": "hour",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "semi-optional",
+      "help": "The amount of HTTP requests the developer can make per hour. At least one limit must exist."
+    },
+    {
+      "name": "day",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "semi-optional",
+      "help": "The amount of HTTP requests the developer can make per day. At least one limit must exist."
+    },
+    {
+      "name": "month",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "semi-optional",
+      "help": "The amount of HTTP requests the developer can make per month. At least one limit must exist."
+    },
+    {
+      "name": "year",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "semi-optional",
+      "help": "The amount of HTTP requests the developer can make per year. At least one limit must exist."
+    },
+    {
+      "name": "limit_by",
+      "component": "Select",
+      "type": "string",
+      "value": "consumer",
+      "restrict": "optional",
+      "options": [
+        "consumer",
+        "credential",
+        "ip"
+      ],
+      "help": "The entity that will be used when aggregating the limits: consumer, credential, ip. If the consumer or the credential cannot be determined, the system will always fallback to ip."
+    },
+    {
+      "name": "policy",
+      "component": "Select",
+      "type": "string",
+      "value": "cluster",
+      "restrict": "optional",
+      "options": [
+        "local",
+        "cluster",
+        "redis"
+      ],
+      "help": "The rate-limiting policies to use for retrieving and incrementing the limits. Available values are local (counters will be stored locally in-memory on the node), cluster (counters are stored in the datastore and shared across the nodes) and redis (counters are stored on a Redis server and will be shared across the nodes). In case of DB-less mode, at least one of local or redis must be specified. Please refer Implementation Considerations for details on which policy should be used."
+    },
+    {
+      "name": "fault_tolerant",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "A boolean value that determines if the requests should be proxied even if Kong has troubles connecting a third-party datastore. If true requests will be proxied anyways effectively disabling the rate-limiting function until the datastore is working again. If false then the clients will see 500 errors."
+    },
+    {
+      "name": "hide_client_headers",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Optionally hide informative response headers."
+    },
+    {
+      "name": "redis_host",
+      "component": "Input",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "When using the redis policy, this property specifies the address to the Redis server."
+    },
+    {
+      "name": "redis_port",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies the port of the Redis server. By default is 6379."
+    },
+    {
+      "name": "redis_password",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies the password to connect to the Redis server."
+    },
+    {
+      "name": "redis_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies the timeout in milliseconds of any command submitted to the Redis server."
+    },
+    {
+      "name": "redis_database",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "optional",
+      "help": "When using the redis policy, this property specifies Redis database to use."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

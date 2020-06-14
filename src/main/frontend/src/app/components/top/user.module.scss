@@ -1,0 +1,21 @@
+.user {
+  display: flex;
+  float: right;
+  height: 44px;
+  margin-top: 10px;
+  img {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #108bee;
+  }
+  span {
+    margin-left: 10px;
+    line-height: 44px;
+  }
+  a {
+    margin: 0 5px 0 10px;
+    line-height: 44px;
+  }
+}

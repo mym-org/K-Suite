@@ -1,0 +1,55 @@
+{
+  "name": "tcp-log",
+  "functionality": "Logging",
+  "icon": "/images/plugins/tcp-log.png",
+  "hubDesc": "Send request and response logs to a TCP server",
+  "description": "Log request and response data to a TCP server.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "host",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The IP address or host name to send data to."
+    },
+    {
+      "name": "port",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "",
+      "help": "The port to send data to on the upstream server"
+    },
+    {
+      "name": "timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 10000,
+      "restrict": "optional",
+      "help": "An optional timeout in milliseconds when sending data to the upstream server"
+    },
+    {
+      "name": "keepalive",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "An optional value in milliseconds that defines for how long an idle connection will live before being closed"
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

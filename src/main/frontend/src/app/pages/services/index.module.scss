@@ -1,0 +1,28 @@
+.serviceTab{
+  font-size:16px;
+  :global{
+    .ant-tabs-nav .ant-tabs-tab-active{
+      color:#fff;
+      background:#1abb9c;
+      border-radius:5px 0 0 5px;
+    }
+    .ant-tabs .ant-tabs-left-bar .ant-tabs-ink-bar, .ant-tabs .ant-tabs-right-bar .ant-tabs-ink-bar{
+      width:0;
+    }
+    .ant-tabs .ant-tabs-left-bar .ant-tabs-tab{
+      text-align:left;
+    }
+    .ant-tabs .ant-tabs-left-bar{
+      border-right:none;
+    }
+  }
+}
+.addAndDetail{
+  :global{
+    .ant-input{
+      border:none;
+      border-radius:0;
+      border-bottom: 1px solid #D9D9DC;
+    }
+  }
+}

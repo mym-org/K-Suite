@@ -1,0 +1,74 @@
+{
+  "name": "hmac-auth",
+  "functionality": "Authentication",
+  "icon": "/images/plugins/hmac-auth.png",
+  "hubDesc": "Add HMAC Authentication to your Services",
+  "description": "Add HMAC Signature authentication to a Service or a Route to establish the integrity of incoming requests. The plugin will validate the digital signature sent in the Proxy-Authorization or Authorization header (in this order). This plugin implementation is based off the draft-cavage-http-signatures draft with a slightly different signature scheme.",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "no_consumer": true,
+  "fields": [
+    {
+      "name": "hide_credentials",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "An optional boolean value telling the plugin to show or hide the credential from the upstream service. If true, the plugin will strip the credential from the request (i.e. the Authorization header) before proxying it."
+    },
+    {
+      "name": "clock_skew",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 300,
+      "restrict": "optional",
+      "help": "Clock Skew in seconds to prevent replay attacks."
+    },
+    {
+      "name": "anonymous",
+      "component": "SelectConsumer",
+      "type": "String",
+      "restrict": "optional",
+      "help": "An optional string (consumer uuid) value to use as an “anonymous” consumer if authentication fails. If empty (default), the request will fail with an authentication failure 4xx. Please note that this value must refer to the Consumer id attribute which is internal to Kong, and not its custom_id."
+    },
+    {
+      "name": "validate_request_body",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "A boolean value telling the plugin to enable body validation"
+    },
+    {
+      "name": "enforce_headers",
+      "component": "InputMultiple",
+      "type": "String",
+      "restrict": "optional",
+      "help": "A list of headers which the client should at least use for HTTP signature creation"
+    },
+    {
+      "name": "algorithms",
+      "component": "SelectMultiple",
+      "type": "array",
+      "options": [
+        "hmac-sha1",
+        "hmac-sha256",
+        "hmac-sha384",
+        "hmac-sha512"
+      ],
+      "restrict": "optional",
+      "help": "A list of HMAC digest algorithms which the user wants to support. Allowed values are hmac-sha1, hmac-sha256, hmac-sha384, and hmac-sha512"
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

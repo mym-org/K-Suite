@@ -1,0 +1,173 @@
+{
+  "name": "routes",
+  "supportKongVersions": ["2.0"],
+  "description": "The Route entities defines rules to match client requests. Each Route is associated with a Service, and a Service may have multiple Routes associated to it. Every request matching a given Route will be proxied to its associated Service.",
+  "showPageTitleBar": true,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/routes",
+    "method": "GET",
+    "searchTarget": "ROUTES"
+  },
+  "buttons": [
+    {
+      "icon": "link",
+      "text": "go to services",
+      "actionType": "openLink",
+      "link": {
+        "href": "/services",
+        "target": "_self"
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "name",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "name"
+      }
+    },
+    {
+      "title": "service",
+      "align": "left",
+      "field": {
+        "type": "link",
+        "fieldName": "service.id",
+        "config": {
+          "href": "/services/{service.id}",
+          "target": "_self"
+        }
+      }
+    },
+    {
+      "title": "hosts",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "hosts",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "methods",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "methods",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "paths",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "paths",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "protocols",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "protocols",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "tags",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "tags",
+        "config": {
+          "method": "_format_tags"
+        }
+      }
+    },
+    {
+      "title": "created at",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date2"
+        }
+      }
+    },
+    {
+      "title": "actions",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "chatou",
+            "text": "plugins",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityListModal",
+              "modalName": "route's plugins",
+              "config": {
+                "pageModelName": "route.plugins"
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "bianji",
+            "text": "edit",
+            "actionType": "openModal",
+            "modal": {
+              "name": "entityCreateUpdateModal",
+              "modalName": "route",
+              "config": {
+                "editable": true,
+                "entityName": "routes",
+                "entityIdFieldName": "id",
+                "loadAPI": {
+                  "url": "/routes/{id}",
+                  "method": "GET"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm": "Are you sure to delete it?",
+            "api": {
+              "url": "/routes/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

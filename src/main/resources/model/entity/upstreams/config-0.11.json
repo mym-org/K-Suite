@@ -1,0 +1,32 @@
+{
+  "name": "upstreams",
+  "supportKongVersions": ["0.11"],
+  "description": "The upstream object represents a virtual hostname and can be used to load balance incoming requests over multiple services (targets)",
+  "fields": [
+    {
+      "name": "name",
+      "component": "Input",
+      "type": "string",
+      "restrict": "required",
+      "help": "This is a hostname like name that can be referenced in an <code class=\"highlighter-rouge\">upstream_url</code> field of an <code class=\"highlighter-rouge\">api</code>."
+    },
+    {
+      "name": "slots",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 1000,
+      "restrict": "optional",
+      "help": "The number of slots in the loadbalancer algorithm (<code class=\"highlighter-rouge\">10</code>-<code class=\"highlighter-rouge\">65536</code>, defaults to <code class=\"highlighter-rouge\">1000</code>).."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/upstreams"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/upstreams/{id}"
+    }
+  }
+}

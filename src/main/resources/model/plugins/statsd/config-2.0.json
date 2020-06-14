@@ -1,0 +1,49 @@
+{
+  "name": "statsd",
+  "functionality": "Logging",
+  "icon": "/images/plugins/statsd.png",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "hubDesc": "Send request and response logs to StatsD",
+  "description": "Log request and response data to a TCP server.",
+  "scopeToConsumerIdField": {
+    "name": "consumer.id"
+  },
+  "fields": [
+    {
+      "name": "host",
+      "component": "Input",
+      "type": "String",
+      "value": "127.0.0.1",
+      "restrict": "optional",
+      "help": "The IP address or host name to send data to."
+    },
+    {
+      "name": "port",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 8125,
+      "restrict": "optional",
+      "help": "The port to send data to on the upstream server"
+    },
+    {
+      "name": "prefix",
+      "component": "Input",
+      "type": "String",
+      "value": "kong",
+      "restrict": "optional",
+      "help": "String to be prefixed to each metric’s name."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  background-color: #ed7612;
+}
+
+.icon i {
+  transition: transform 0.3s
+}
+
+:global(.open) .icon i {
+  transform: rotate(180deg);
+}

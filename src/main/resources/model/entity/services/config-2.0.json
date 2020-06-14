@@ -1,0 +1,98 @@
+{
+  "name": "services",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "description": "Service entities, as the name implies, are abstractions of each of your own upstream services. Examples of Services would be a data transformation microservice, a billing API, etc.",
+  "fields": [
+    {
+      "name": "name",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The Service name."
+    },
+    {
+      "name": "retries",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 5,
+      "restrict": "optional",
+      "help": "The number of retries to execute upon failure to proxy. Defaults to <code class=\"highlighter-rouge\">5</code>."
+    },
+    {
+      "name": "protocol",
+      "component": "Select",
+      "type": "string",
+      "value": "http",
+      "restrict": "",
+      "options": [
+        "grpc", "grpcs", "http", "https", "tcp", "tls"
+      ],
+      "help": "The protocol used to communicate with the upstream. It can be one of <code class=\"highlighter-rouge\">http</code> or <code class=\"highlighter-rouge\">https</code>.  Defaults to <code class=\"highlighter-rouge\">\"http\"</code>."
+    },
+    {
+      "name": "host",
+      "component": "SelectUpstream",
+      "type": "string",
+      "restrict": "",
+      "help": "The host of the upstream server."
+    },
+    {
+      "name": "port",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 80,
+      "restrict": "",
+      "help": "The upstream server port. Defaults to <code class=\"highlighter-rouge\">80</code>."
+    },
+    {
+      "name": "path",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The path to be used in requests to the upstream server."
+    },
+    {
+      "name": "connect_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "The timeout in milliseconds for establishing a connection to the upstream server.  Defaults to <code class=\"highlighter-rouge\">60000</code>."
+    },
+    {
+      "name": "write_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "The timeout in milliseconds between two successive write operations for transmitting a request to the upstream server.  Defaults to <code class=\"highlighter-rouge\">60000</code>."
+    },
+    {
+      "name": "read_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "The timeout in milliseconds between two successive read operations for transmitting a request to the upstream server.  Defaults to <code class=\"highlighter-rouge\">60000</code>."
+    },
+    {
+      "name": "tags",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "An optional set of strings associated with the Service, for grouping and filtering."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/services"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/services/{id}"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "udp-log",
+  "functionality": "Logging",
+  "icon": "/images/plugins/udp-log.png",
+  "hubDesc": "Send request and response logs to an UDP server",
+  "description": "Log request and response data to an UDP server.",
+  "supportKongVersions": [
+    "2.0"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer.id"
+  },
+  "fields": [
+    {
+      "name": "host",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The IP address or host name to send data to."
+    },
+    {
+      "name": "port",
+      "component": "InputNumber",
+      "type": "number",
+      "restrict": "",
+      "help": "The port to send data to on the upstream server"
+    },
+    {
+      "name": "timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 10000,
+      "restrict": "optional",
+      "help": "An optional timeout in milliseconds when sending data to the upstream server"
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

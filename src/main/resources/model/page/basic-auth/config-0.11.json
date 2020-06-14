@@ -1,0 +1,81 @@
+{
+  "name": "basic-auth",
+  "supportKongVersions": ["0.11"],
+  "description": "",
+  "showPageTitleBar": false,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/consumers/{$scope_parent_entity_data.id}/basic-auth",
+    "method": "GET",
+    "searchTarget": "BASIC_AUTH"
+  },
+  "buttons": [
+    {
+      "icon": "plus",
+      "text": "Add Basic Auth",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "basic-auth",
+        "config": {
+          "entityName": "basic-auth"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "username",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "username"
+      }
+    },
+    {
+      "title": "password",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "password"
+      }
+    },
+    {
+      "title": "created",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date"
+        }
+      }
+    },
+    {
+      "title": "ACTIONS",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm":"Are you sure to delete it?",
+            "api": {
+              "url": "/consumers/{consumer_id}/basic-auth/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

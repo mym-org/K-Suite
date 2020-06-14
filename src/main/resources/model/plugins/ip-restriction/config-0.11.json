@@ -1,0 +1,39 @@
+{
+  "name": "ip-restriction",
+  "functionality": "Security",
+  "icon": "/images/plugins/ip-restriction.png",
+  "hubDesc": "Whitelist or blacklist IPs that can make requests to your Services",
+  "description": "Restrict access to a Service or a Route by either whitelisting or blacklisting IP addresses. Single IPs, multiple IPs or ranges in CIDR notation like 10.10.10.0/24 can be used. The plugin supports IPv4 and IPv6 addresses.",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "whitelist",
+      "component": "InputMultiple",
+      "type": "String",
+      "restrict": "semi-optional",
+      "help": "A List of IPs or CIDR ranges to whitelist. One of config.whitelist or config.blacklist must be specified."
+    },
+    {
+      "name": "blacklist",
+      "component": "InputMultiple",
+      "type": "String",
+      "restrict": "semi-optional",
+      "help": "A List of IPs or CIDR ranges to blacklist. One of config.whitelist or config.blacklist must be specified."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

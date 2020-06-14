@@ -1,0 +1,57 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+  width: 248px;
+  height: 28px;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+}
+
+.check {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  cursor: pointer;
+}
+
+.selected {
+  overflow: hidden;
+  display: block;
+  height: 28px;
+  margin: 0 10px;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+
+.selected.left {
+  margin-left: 40px;
+}
+
+.selected.right {
+  margin-right: 40px;
+}
+
+.children {
+  display: none;
+  position: absolute;
+  top: 28px;
+  left: -1px;
+  z-index: 1;
+  width: 100%;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.rightIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ccc;
+}
+
+:global(.open) .children {
+  display: block;
+}

@@ -1,0 +1,82 @@
+/* stylelint-disable */
+.scroll {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.scroll > .vertical-bar,
+.scroll > .horizontal-bar {
+  opacity: 0;
+  position: absolute;
+  z-index: 9;
+  transition: opacity 0.6s;
+}
+.scroll > .vertical-bar > i,
+.scroll > .horizontal-bar > i {
+  opacity: 0.2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background-color: #333;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.scroll > .vertical-bar > i:hover,
+.scroll > .horizontal-bar > i:hover {
+  opacity: 0.3;
+}
+.scroll > .vertical-bar {
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 100%;
+}
+.scroll > .vertical-bar > i {
+  top: 0;
+  left: 0;
+}
+.scroll > .horizontal-bar {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+}
+.scroll > .horizontal-bar > i {
+  bottom: 0;
+  left: 0;
+}
+.scroll > .vertical-bar.drag,
+.scroll > .horizontal-bar.drag {
+  opacity: 1;
+}
+.scroll > .vertical-bar.drag > i,
+.scroll > .horizontal-bar.drag > i {
+  opacity: 0.3;
+}
+.scroll > .vertical-bar.hidden,
+.scroll > .horizontal-bar.hidden {
+  opacity: 0;
+}
+.scroll > .container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+}
+
+.scroll:hover > .vertical-bar,
+.scroll:hover > .horizontal-bar {
+  opacity: 1;
+}
+.scroll:hover > .vertical-bar.hidden,
+.scroll:hover > .horizontal-bar.hidden {
+  opacity: 0;
+}
+
+.noselect {
+  user-select: none;
+}

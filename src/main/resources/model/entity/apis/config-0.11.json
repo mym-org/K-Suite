@@ -1,0 +1,127 @@
+{
+  "name": "apis",
+  "supportKongVersions": ["0.11"],
+  "description": "The API object describes an API that’s being exposed by Kong. Kong needs to know how to retrieve the\nAPI when a consumer is calling it from the Proxy port. Each API object must specify some combination\nof <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">uris</code>, and <code class=\"highlighter-rouge\">methods</code>. Kong will proxy all requests to the API to the specified upstream URL.",
+  "fields": [
+    {
+      "name": "name",
+      "component": "Input",
+      "type": "string",
+      "restrict": "",
+      "help": "The API name."
+    },
+    {
+      "name": "hosts",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A comma-separated list of domain names that point to your API. For example: <code class=\"highlighter-rouge\">example.com</code>. At least one of <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">uris</code>, or <code class=\"highlighter-rouge\">methods</code> should be specified."
+    },
+    {
+      "name": "uris",
+      "component": "InputMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "help": "A comma-separated list of URIs prefixes that point to your API. For example: <code class=\"highlighter-rouge\">/my-path</code>. At least one of <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">uris</code>, or <code class=\"highlighter-rouge\">methods</code> should be specified."
+    },
+    {
+      "name": "methods",
+      "component": "SelectMultiple",
+      "type": "string",
+      "value": [],
+      "restrict": "semi-optional",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH",
+        "OPTIONS"
+      ],
+      "help": "A comma-separated list of URIs prefixes that point to your API. For example: <code class=\"highlighter-rouge\">/my-path</code>. At least one of <code class=\"highlighter-rouge\">hosts</code>, <code class=\"highlighter-rouge\">uris</code>, or <code class=\"highlighter-rouge\">methods</code> should be specified."
+    },
+    {
+      "name": "upstream_url",
+      "component": "Input",
+      "type": "string",
+      "restrict": "",
+      "help": "The base target URL that points to your API server. This URL will be used for proxying requests. For example: <code class=\"highlighter-rouge\">https://example.com</code>."
+    },
+    {
+      "name": "strip_uri",
+      "component": "Switch",
+      "type": "boolean",
+      "value": true,
+      "restrict": "optional",
+      "help": "When matching an API via one of the <code class=\"highlighter-rouge\">uris</code> prefixes, strip that matching prefix from the upstream URI to be requested. Default: <code class=\"highlighter-rouge\">true</code>."
+    },
+    {
+      "name": "preserve_host",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "When matching an API via one of the <code class=\"highlighter-rouge\">hosts</code> domain names, make sure the request <code class=\"highlighter-rouge\">Host</code> header is forwarded to the upstream service. By default, this is <code class=\"highlighter-rouge\">false</code>, and the upstream <code class=\"highlighter-rouge\">Host</code> header will be extracted from the configured <code class=\"highlighter-rouge\">upstream_url</code>."
+    },
+    {
+      "name": "retries",
+      "component": "InputNumber",
+      "type": "string",
+      "value": "5",
+      "restrict": "optional",
+      "help": "The number of retries to execute upon failure to proxy. The default is <code class=\"highlighter-rouge\">5</code>."
+    },
+    {
+      "name": "upstream_connect_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "The timeout in milliseconds for establishing a connection to your upstream service. Defaults to <code class=\"highlighter-rouge\">60000</code>."
+    },
+    {
+      "name": "upstream_send_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "The timeout in milliseconds between two successive write operations for transmitting a request to your upstream service Defaults to <code class=\"highlighter-rouge\">60000</code>."
+    },
+    {
+      "name": "upstream_read_timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "The timeout in milliseconds between two successive read operations for transmitting a request to your upstream service Defaults to <code class=\"highlighter-rouge\">60000</code>."
+    },
+    {
+      "name": "https_only",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "To be enabled if you wish to only serve an API through HTTPS, on the appropriate port (<code class=\"highlighter-rouge\">8443</code> by default). Default: <code class=\"highlighter-rouge\">false</code>."
+    },
+    {
+      "name": "http_if_terminated",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Consider the <code class=\"highlighter-rouge\">X-Forwarded-Proto</code> header when enforcing HTTPS only traffic. Default: <code class=\"highlighter-rouge\">false</code>."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/apis/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/apis/{id}"
+    }
+  }
+}

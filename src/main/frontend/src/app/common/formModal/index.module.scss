@@ -1,0 +1,49 @@
+.pluginsModal {
+  :global(.ant-modal-body) {
+    padding: 0;
+  }
+
+  :global(.ant-modal-header) {
+    border-bottom: 2px solid #1abb9c;
+  }
+
+}
+
+.editPlugins {
+  .desc {
+    padding: 20px 15px 25px;
+    background-color: #ededed;
+    color: #a6a6a6;
+
+  }
+
+  .form {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    p {
+      margin: 0;
+      color: #a6a6a6;
+
+      code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 3px;
+      }
+
+      a {
+        color: #428bca;
+        text-decoration: none;
+      }
+    }
+
+    button {
+      width: 100%;
+      background: #1abb9c;
+      color: #fff;
+    }
+  }
+}

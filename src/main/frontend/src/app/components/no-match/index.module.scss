@@ -1,0 +1,14 @@
+.auth {
+  position: relative;
+  height: 100%;
+  .center {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    > div {
+      display: inline-block;
+    }
+  }
+}

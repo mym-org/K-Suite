@@ -1,0 +1,155 @@
+{
+  "name": "plugins",
+  "supportKongVersions": ["0.11"],
+  "description": "A Plugin entity represents a plugin configuration that will be executed during the HTTP request/response workflow, and it's how you can add functionalities to APIs that run behind Kong, like Authentication or Rate Limiting for example.",
+  "showPageTitleBar": true,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/plugins",
+    "method": "GET",
+    "searchTarget": "PLUGINS"
+  },
+  "buttons": [
+    {
+      "icon": "plus",
+      "text": "ADD GLOBAL PLUGIN",
+      "actionType": "openModal",
+      "modal": {
+        "name": "pluginsHubModal",
+        "modalName": "plugin",
+        "config": {
+          "editable": false
+        }
+
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "width": 30,
+      "field": {
+        "type": "icon",
+        "config": {
+          "src": "/images/plugins/{name}.png",
+          "height": "42px"
+        }
+      }
+    },
+    {
+      "title": "",
+      "align": "left",
+      "width": 30,
+      "field": {
+        "type": "switch",
+        "fieldName": "enabled",
+        "config": {
+          "action": {
+            "url": "/plugins/{id}",
+            "method": "PATCH"
+          }
+        }
+      }
+    },
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "name",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "name"
+      }
+    },
+    {
+      "title": "scope",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "config": {
+          "method": "_plugin_scope"
+        }
+      }
+    },
+    {
+      "title": "apply to",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "config": {
+          "method": "_plugin_apply_to"
+        }
+      }
+    },
+    {
+      "title": "consumer",
+      "align": "left",
+      "field": {
+        "type": "link",
+        "fieldName": "consumer.id",
+        "config": {
+          "href": "/consumers/{consumer.id}",
+          "target": "_self",
+          "nullText": "All consumers"
+        }
+      }
+    },
+    {
+      "title": "created at",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date"
+        }
+      }
+    },
+    {
+      "title": "actions",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "bianji",
+            "text": "edit",
+            "actionType": "openModal",
+            "modal": {
+              "name": "pluginUpModal",
+              "modalName": "Plugin",
+              "config": {
+                "editable": true,
+                "entityIdFieldName": "id",
+                "entityName": "plugins",
+                "loadAPI": {
+                  "url": "/plugins/{id}",
+                  "method": "GET"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm":"Are you sure to delete it?",
+            "api": {
+              "url": "/plugins/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

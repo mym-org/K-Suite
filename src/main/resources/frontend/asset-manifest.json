@@ -1,0 +1,21 @@
+{
+  "antd.js": "static/js/antd.c62fe9da.js",
+  "antd.js.map": "static/js/antd.c62fe9da.js.map",
+  "main.js": "static/js/main.15102ee9.js",
+  "main.js.map": "static/js/main.15102ee9.js.map",
+  "mobxs.js": "static/js/mobxs.bb909be4.js",
+  "mobxs.js.map": "static/js/mobxs.bb909be4.js.map",
+  "reacts.js": "static/js/reacts.eca61be0.js",
+  "reacts.js.map": "static/js/reacts.eca61be0.js.map",
+  "static/media/galileo.png": "static/media/galileo.3f97901f.png",
+  "static/media/iconfont.eot?t=1590570709979": "static/media/iconfont.9306ab29.eot",
+  "static/media/iconfont.svg?t=1590570709979": "static/media/iconfont.d77e05ee.svg",
+  "static/media/iconfont.ttf?t=1590570709979": "static/media/iconfont.10038b57.ttf",
+  "static/media/iconfont.woff?t=1590570709979": "static/media/iconfont.54bd6ba5.woff",
+  "static/media/kong.svg": "static/media/kong.5b462097.svg",
+  "static/media/loggly.png": "static/media/loggly.f4aee03c.png",
+  "static/media/logo.png": "static/media/logo.4291310e.png",
+  "static/media/oauth2.png": "static/media/oauth2.7b59fc6d.png",
+  "vendors.js": "static/js/vendors.6e02d92d.js",
+  "vendors.js.map": "static/js/vendors.6e02d92d.js.map"
+}

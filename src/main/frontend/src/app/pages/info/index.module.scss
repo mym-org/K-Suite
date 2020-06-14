@@ -1,0 +1,29 @@
+.info{
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.3);
+  .title{
+    display: flex;
+    justify-content: space-between;
+    padding:8px 15px;
+    background: #eee;
+    i{
+      font-weight: 800;
+    }
+  }
+  .list{
+    display: flex;
+    justify-content: space-around;
+    li{
+      width:16.6%;
+      margin-top:15px;
+      text-align: center;
+    }
+    span{
+      font-weight: 800;
+    }
+    p{
+      font-size: 20px;
+      font-weight: 800;
+    }
+  }
+}

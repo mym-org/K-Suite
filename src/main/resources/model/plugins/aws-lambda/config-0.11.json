@@ -1,0 +1,152 @@
+{
+  "name": "aws-lambda",
+  "version": "0.1.x",
+  "functionality": "Serverless",
+  "icon": "/images/plugins/aws-lambda.png",
+  "hubDesc": "Invoke and manage AWS Lambda functions from Kong",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "description": "Invoke an <a href=\"https://aws.amazon.com/lambda/\">AWS Lambda</a> function from Kong. It\ncan be used in combination with other request plugins to secure, manage, or\nextend the function.",
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "aws_key",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The AWS key credential to be used when invoking the function"
+    },
+    {
+      "name": "aws_secret",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The AWS secret credential to be used when invoking the function"
+    },
+    {
+      "name": "aws region",
+      "component": "Select",
+      "type": "string",
+      "restrict": "",
+      "options": [
+        "us-east-1",
+        "us-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "eu-central-1",
+        "eu-west-1"
+      ],
+      "help": "The AWS region where the Lambda function is located. Regions supported are: us-east-1, us-east-2, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1"
+    },
+    {
+      "name": "function_name",
+      "component": "Input",
+      "type": "String",
+      "restrict": "",
+      "help": "The AWS Lambda function name to invoke"
+    },
+    {
+      "name": "qualifier",
+      "component": "Input",
+      "type": "String",
+      "restrict": "optional",
+      "help": "The Qualifier to use when invoking the function."
+    },
+    {
+      "name": "invocation_type",
+      "component": "Select",
+      "type": "string",
+      "value": "RequestResponse",
+      "restrict": "optional",
+      "options": [
+        "RequestResponse",
+        "Event",
+        "DryRun"
+      ],
+      "help": "The InvocationType to use when invoking the function. Available types are RequestResponse, Event, DryRun"
+    },
+    {
+      "name": "log_type",
+      "component": "Select",
+      "type": "string",
+      "value": "Tail",
+      "restrict": "optional",
+      "options": [
+        "None",
+        "Tail"
+      ],
+      "help": "The LogType to use when invoking the function. By default None and Tail are supported"
+    },
+    {
+      "name": "timeout",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "An optional timeout in milliseconds when invoking the function"
+    },
+    {
+      "name": "keepalive",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 60000,
+      "restrict": "optional",
+      "help": "An optional value in milliseconds that defines how long an idle connection will live before being closed"
+    },
+    {
+      "name": "unhandled_status",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 200,
+      "restrict": "optional",
+      "help": "The response status code to use (instead of the default 200, 202, or 204) in the case of an Unhandled Function Error"
+    },
+    {
+      "name": "forward_request_body",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "An optional value that defines whether the request body is to be sent in the request_body field of the JSON-encoded request. If the body arguments can be parsed, they will be sent in the separate request_body_args field of the request. The body arguments can be parsed for application/json, application/x-www-form-urlencoded, and multipart/form-data content types."
+    },
+    {
+      "name": "forward_request_headers",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "An optional value that defines whether the original HTTP request headers are to be sent as a map in the request_headers field of the JSON-encoded request."
+    },
+    {
+      "name": "forward_request_method",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "An optional value that defines whether the original HTTP request method verb is to be sent in the request_method field of the JSON-encoded request."
+    },
+    {
+      "name": "forward_request_uri",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "An optional value that defines whether the original HTTP request URI is to be sent in the request_uri field of the JSON-encoded request. Request URI arguments (if any) will be sent in the separate request_uri_args field of the JSON body."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

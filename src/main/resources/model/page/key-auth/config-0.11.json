@@ -1,0 +1,75 @@
+{
+  "name": "key-auth",
+  "supportKongVersions": [
+    "0.11"
+  ],
+  "description": "",
+  "showPageTitleBar": false,
+  "listByPage": {
+    "showByKeywords": false,
+    "url": "/consumers/{$scope_parent_entity_data.id}/key-auth",
+    "method": "GET",
+    "searchTarget": "KEY_AUTH"
+  },
+  "buttons": [
+    {
+      "icon": "plus",
+      "text": "CREATE API KEYS",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "key-auth",
+        "config": {
+          "entityName": "key-auth"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "key",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "key"
+      }
+    },
+    {
+      "title": "created",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date"
+        }
+      }
+    },
+    {
+      "title": "ACTIONS",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm": "Are you sure to delete it?",
+            "api": {
+              "url": "/consumers/{consumer_id}/key-auth/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

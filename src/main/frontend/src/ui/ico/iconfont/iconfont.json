@@ -1,0 +1,79 @@
+{
+  "id": "1808023",
+  "name": "ai-ksuite",
+  "font_family": "iconfont",
+  "css_prefix_text": "ak-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7605184",
+      "name": "tool",
+      "font_class": "tool",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "2000841",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "8715472",
+      "name": "healthy",
+      "font_class": "healthy",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "14257444",
+      "name": "heart-off",
+      "font_class": "heart-off",
+      "unicode": "f3eb",
+      "unicode_decimal": 62443
+    },
+    {
+      "icon_id": "1160253",
+      "name": "user-group ",
+      "font_class": "usergroup",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "3412051",
+      "name": "云",
+      "font_class": "yun",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "7775060",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "650761",
+      "name": "规范－盾牌",
+      "font_class": "dunpai",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "1013826",
+      "name": "插头",
+      "font_class": "chatou",
+      "unicode": "e78f",
+      "unicode_decimal": 59279
+    },
+    {
+      "icon_id": "13075009",
+      "name": "垃圾桶",
+      "font_class": "lajitong",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    }
+  ]
+}

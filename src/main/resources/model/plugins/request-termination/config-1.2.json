@@ -1,0 +1,53 @@
+{
+  "name": "request-termination",
+  "functionality": "Traffic Control",
+  "icon": "/images/plugins/request-termination.png",
+  "hubDesc": "Terminates all requests with a specific response",
+  "description": "This plugin terminates incoming requests with a specified status code and message. This allows to (temporarily) stop traffic on a Service or a Route, or even block a Consumer.",
+  "supportKongVersions": ["1.2"],
+  "scopeToConsumerIdField": {
+    "name": "consumer.id"
+  },
+  "fields": [
+    {
+      "name": "status_code",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 503,
+      "restrict": "optional",
+      "help": "The response code to send."
+    },
+    {
+      "name": "message",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The message to send, if using the default response generator."
+    },
+    {
+      "name": "body",
+      "component": "Input",
+      "type": "string",
+      "restrict": "optional",
+      "help": "The raw response body to send, this is mutually exclusive with the config.message field."
+    },
+    {
+      "name": "content_type",
+      "component": "Input",
+      "type": "string",
+      "value": "application/json; charset=utf-8",
+      "restrict": "optional",
+      "help": "Content type of the raw response configured with config.body."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}
