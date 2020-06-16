@@ -75,7 +75,7 @@ docker run -e KONG_ADMIN_ENDPOINT=https://local:8001 -e KONG_NAME=test -e AUTH_T
 |KONG_NAME| 给网关取一个名字用于标记。方便在K-Suite管理界面看到这个标记，防止误操作 |
 |AUTH_TYPE | K-Suite当前选择的认证方式 |
 |LOCAL_USERS| K-Suite当前的管理用户.配置参考 [**登录认证用户信息**](#登录认证用户信息) |
-|LOCAL_USERS_FILE|K-Suite当前的管理用户,通过外挂JSON问卷方式提供。配置参考 [**登录认证用户信息**](#登录认证用户信息)|
+|LOCAL_USERS_FILE|K-Suite当前的管理用户,通过外挂文件方式提供。配置参考 [**登录认证用户信息**](#登录认证用户信息)|
 |LDAP_URLS| K-Suite如果当前选择LDAP认证，为LDAP的地址信息。|
 |LDAP_BASE |K-Suite如果当前选择LDAP认证，为LDAP的BASE DN信息 |
 
