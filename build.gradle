@@ -25,6 +25,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation('org.springframework.boot:spring-boot-starter-validation')
     implementation('org.springframework.boot:spring-boot-starter-web')
+    
     runtime('org.springframework.boot:spring-boot-devtools') {
         exclude group: 'org.apache.tomcat', module: 'tomcat-jdbc'
     }
