@@ -96,6 +96,24 @@ public class KongPluginModelSvImpl implements IKongPluginModelSv, IAfterStartedE
         return plugins.stream().filter(p -> MatchUtils.matchPluginKongVersions(p, kongVersion)).findFirst().orElse(null);
     }
 
+    @Override
+    public JSONObject getPluginField(JSONObject model, String fieldName) {
+        if (model == null || fieldName == null) {
+            return null;
+        }
+        JSONArray fields = model.getJSONArray("fields");
+        if (CollectionUtils.isEmpty(fields)) {
+            return null;
+        }
+        for (int i = 0; i < fields.size(); i++) {
+            JSONObject filed = fields.getJSONObject(i);
+            if (Objects.equals(fieldName, filed.getString("name"))) {
+                return filed;
+            }
+        }
+        return null;
+    }
+
     /**
      * load plugin's functionality
      *

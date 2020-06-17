@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.mym.ksuite.em.KongEntity;
 import org.springframework.http.HttpMethod;
 
 /**
@@ -32,4 +33,9 @@ public class KongAdminProxyRequest {
      * request body
      */
     JSONObject requestBody;
+
+    /**
+     * action for target
+     */
+    KongEntity target;
 }

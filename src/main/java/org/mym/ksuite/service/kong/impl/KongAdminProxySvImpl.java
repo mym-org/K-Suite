@@ -5,6 +5,8 @@ import org.mym.ksuite.service.kong.IKongAdminApiCallSv;
 import org.mym.ksuite.service.kong.IKongAdminProxySv;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.mym.ksuite.service.kong.payload.process.IKongPayloadProcess;
+import org.mym.ksuite.service.kong.payload.process.KongPayloadProcessFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -25,6 +27,7 @@ public class KongAdminProxySvImpl implements IKongAdminProxySv {
         Assert.hasText(proxyRequest.getAdminApi(), "kong admin api must be required");
         Assert.notNull(proxyRequest.getHttpMethod(), "kong admin http method must be required");
         log.info("exec admin api={},method={}", proxyRequest.getAdminApi(), proxyRequest.getHttpMethod().name());
+        this.prepareProcessPayload(proxyRequest);
         JSONObject result = null;
         switch (proxyRequest.getHttpMethod()) {
             case GET:
@@ -44,5 +47,21 @@ public class KongAdminProxySvImpl implements IKongAdminProxySv {
                 break;
         }
         return result;
+    }
+
+    /**
+     * prepare to process payload
+     *
+     * @param proxyRequest
+     */
+    private void prepareProcessPayload(KongAdminProxyRequest proxyRequest) {
+        if (proxyRequest.getTarget() == null) {
+            return;
+        }
+        IKongPayloadProcess process = KongPayloadProcessFactory.getInstance(proxyRequest.getTarget());
+        if (process == null) {
+            return;
+        }
+        process.process(proxyRequest.getHttpMethod(), proxyRequest.getRequestBody());
     }
 }
