@@ -57,7 +57,7 @@ public class KongAdminApiCallSvImpl implements IKongAdminApiCallSv {
         if (payload == null) {
             payload = new JSONObject();
         }
-        String body = JSONObject.toJSONString(payload, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteNullListAsEmpty);
+        String body = JSONObject.toJSONString(payload, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty);
         RequestBody requestBody = RequestBody.create(okhttp3.MediaType.parse(MediaType.APPLICATION_JSON_VALUE), body);
         Request request = new Request.Builder().addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE).post(requestBody).url(this.buildAdminApi(path)).build();
         return this.call(request);
@@ -74,7 +74,7 @@ public class KongAdminApiCallSvImpl implements IKongAdminApiCallSv {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public JSONObject patch(String path, JSONObject payload) {
         Assert.notNull(payload, "patch data must be required");
-        String body = JSONObject.toJSONString(payload, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteNullListAsEmpty);
+        String body = JSONObject.toJSONString(payload, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty);
         RequestBody requestBody = RequestBody.create(okhttp3.MediaType.parse(MediaType.APPLICATION_JSON_VALUE), body);
         Request request = new Request.Builder().addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE).patch(requestBody).url(this.buildAdminApi(path)).build();
         return this.call(request);
@@ -85,7 +85,7 @@ public class KongAdminApiCallSvImpl implements IKongAdminApiCallSv {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public JSONObject put(String path, JSONObject payload) {
         Assert.notNull(payload, "put data must be required");
-        String body = JSONObject.toJSONString(payload, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteNullListAsEmpty);
+        String body = JSONObject.toJSONString(payload, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty);
         RequestBody requestBody = RequestBody.create(okhttp3.MediaType.parse(MediaType.APPLICATION_JSON_VALUE), body);
         Request request = new Request.Builder().addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE).put(requestBody).url(this.buildAdminApi(path)).build();
         return this.call(request);
