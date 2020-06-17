@@ -114,7 +114,6 @@ class EditPlugin extends React.Component {
     const {httpAgent} = this.props.commonStore;
 
     const requestBody = getFieldsValue();
-    requestBody.target = "PLUGINS";
     //处理数据
     for (let key in requestBody) {
 
@@ -156,7 +155,8 @@ class EditPlugin extends React.Component {
     httpAgent.kong({
       adminApi,
       httpMethod: type === 'edit' ? update.method : add.method,
-      requestBody
+      requestBody,
+      target : "PLUGINS"
     }).then(res => {
       const {resultCode, resultMessage} = res
       if (resultCode === '000000') {
