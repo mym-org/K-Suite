@@ -1,0 +1,38 @@
+{
+  "name": "acl",
+  "version": "0.1.x",
+  "functionality": "Traffic Control",
+  "icon": "/images/plugins/acl.png",
+  "hubDesc": "Control which consumers can access Services",
+  "supportKongVersions": [
+    "0.14"
+  ],
+  "no_consumer": true,
+  "description": "Restrict access to a Service or a Route by whitelisting or blacklisting consumers using arbitrary ACL group names. This plugin requires an <a href=\"/about/faq/#how-can-i-add-authentication-to-a-microservice-api\">authentication plugin</a> to have been already enabled on the Service or Route.",
+  "fields": [
+    {
+      "name": "whitelist",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "Comma separated list of arbitrary group names that are allowed to consume the Service or the Route (or API). One of config.whitelist or config.blacklist must be specified."
+    },
+    {
+      "name": "blacklist",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "semi-optional",
+      "help": "Comma separated list of arbitrary group names that are not allowed to consume the Service or the Route (or API). One of config.whitelist or config.blacklist must be specified."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "bot-detection",
+  "functionality": "Security",
+  "icon": "/images/plugins/bot-detection.png",
+  "hubDesc": "Detect and block bots or custom clients",
+  "supportKongVersions": [
+    "0.14"
+  ],
+  "description": "Protects a Service or a Route from most common bots and has the capability of whitelisting and blacklisting custom clients.",
+  "no_consumer": true,
+  "fields": [
+    {
+      "name": "whitelist",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "An array of regular expressions that should be whitelisted. The regular expressions will be checked against the User-Agent header."
+    },
+    {
+      "name": "blacklist",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "optional",
+      "help": "An array of regular expressions that should be blacklisted. The regular expressions will be checked against the User-Agent header."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

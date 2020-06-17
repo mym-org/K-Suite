@@ -1,0 +1,34 @@
+{
+  "name": "request-size-limiting",
+  "version": "0.1.x",
+  "functionality": "Traffic Control",
+  "icon": "/images/plugins/request-size-limiting.png",
+  "hubDesc": "Block requests with bodies greater than a specific size",
+  "description": "Block incoming requests whose body is greater than a specific size in megabytes.",
+  "supportKongVersions": [
+    "0.14"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "allowed_payload_size",
+      "component": "InputNumber",
+      "type": "number",
+      "value": 128,
+      "restrict": "",
+      "help": "Allowed request payload size in megabytes, default is 128 (128000000 Bytes)"
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

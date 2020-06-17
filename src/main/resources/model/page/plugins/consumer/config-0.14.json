@@ -1,26 +1,27 @@
 {
-  "name": "plugins",
-  "supportKongVersions": ["0.11"],
-  "description": "A Plugin entity represents a plugin configuration that will be executed during the HTTP request/response workflow, and it's how you can add functionalities to APIs that run behind Kong, like Authentication or Rate Limiting for example.",
-  "showPageTitleBar": true,
+  "name": "consumer.plugins",
+  "supportKongVersions": ["0.14"],
+  "description": "consumer's plugins.",
+  "showPageTitleBar": false,
   "listByPage": {
     "showByKeywords": true,
-    "url": "/plugins",
+    "url": "/consumers/{$scope_parent_entity_data.id}/plugins",
     "method": "GET",
     "searchTarget": "PLUGINS"
   },
   "buttons": [
     {
       "icon": "plus",
-      "text": "ADD GLOBAL PLUGIN",
+      "text": "ADD NEW PLUGIN",
       "actionType": "openModal",
       "modal": {
         "name": "pluginsHubModal",
         "modalName": "plugin",
         "config": {
-          "editable": false
+          "scope": "CONSUMERS",
+          "id": "$scope_parent_entity_data.id",
+          "scopeToIdFieldName": "consumer_id"
         }
-
       }
     }
   ],
@@ -55,6 +56,7 @@
     {
       "title": "",
       "align": "left",
+      "width": 30,
       "field": {
         "type": "raw_view"
       }
@@ -65,39 +67,6 @@
       "field": {
         "type": "normal",
         "fieldName": "name"
-      }
-    },
-    {
-      "title": "scope",
-      "align": "left",
-      "field": {
-        "type": "format",
-        "config": {
-          "method": "_plugin_scope"
-        }
-      }
-    },
-    {
-      "title": "apply to",
-      "align": "left",
-      "field": {
-        "type": "format",
-        "config": {
-          "method": "_plugin_apply_to"
-        }
-      }
-    },
-    {
-      "title": "consumer",
-      "align": "left",
-      "field": {
-        "type": "link",
-        "fieldName": "consumer_id",
-        "config": {
-          "href": "/consumers/{consumer_id}",
-          "target": "_self",
-          "nullText": "All consumers"
-        }
       }
     },
     {
@@ -142,7 +111,7 @@
             "icon": "lajitong",
             "text": "delete",
             "actionType": "callAPI",
-            "confirm":"Are you sure to delete it?",
+            "confirm": "Are you sure to delete it?",
             "api": {
               "url": "/plugins/{id}",
               "method": "DELETE"

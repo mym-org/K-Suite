@@ -1,5 +1,7 @@
 # K-Suite: 为高性能开源微服务网关[Kong Gateway](http://getkong.org) 社区版开发的一款监控与管理软件。所有模块抽象设计，可配置装载。具备灵活度高、扩展性好、兼容性强的特点。能快速支撑Kong Community的任何历史版本。
 
+  [![Gitter](https://badges.gitter.im/K-Suite/community.svg)](https://gitter.im/K-Suite/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # 目录
 - [**主要特性**](#主要特性)
 - [**对Kong的兼容性**](#对Kong的兼容性)

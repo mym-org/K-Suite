@@ -1,0 +1,54 @@
+{
+  "name": "correlation-id",
+  "functionality": "Transformations",
+  "icon": "/images/plugins/correlation-id.png",
+  "hubDesc": "Correlate requests and responses using a unique ID",
+  "supportKongVersions": [
+    "0.14"
+  ],
+  "description": "Correlate requests and responses using a unique ID transmitted over an HTTP header.",
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "header_name",
+      "component": "Input",
+      "type": "String",
+      "value": "Kong-Request-ID",
+      "restrict": "optional",
+      "help": "The HTTP header name to use for the correlation ID."
+    },
+    {
+      "name": "generator",
+      "component": "Select",
+      "type": "string",
+      "value": "uuid#counter",
+      "restrict": "",
+      "options": [
+        "uuid",
+        "uuid#counter",
+        "tracker"
+      ],
+      "help": "The generator to use for the correlation ID. Accepted values are uuid, uuid#counter and tracker See Generators."
+    },
+    {
+      "name": "echo_downstream",
+      "component": "Switch",
+      "type": "boolean",
+      "value": false,
+      "restrict": "optional",
+      "help": "Whether to echo the header back to downstream (the client)."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}

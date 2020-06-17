@@ -1,0 +1,40 @@
+{
+  "name": "certificates",
+  "supportKongVersions": [
+    "0.14"
+  ],
+  "description": "A certificate object represents a public certificate/private key pair for an SSL certificate. These objects are used by Kong to handle SSL/TLS termination for encrypted requests. Certificates are optionally associated with SNI objects to tie a cert/key pair to one or more hostnames.",
+  "fields": [
+    {
+      "name": "cert",
+      "component": "TextArea",
+      "type": "string",
+      "restrict": "",
+      "help": "PEM-encoded public certificate of the SSL key pair."
+    },
+    {
+      "name": "key",
+      "component": "TextArea",
+      "type": "string",
+      "restrict": "",
+      "help": "PEM-encoded private key of the SSL key pair."
+    },
+    {
+      "name": "snis",
+      "component": "InputMultiple",
+      "type": "string",
+      "restrict": "shorthand-attribute",
+      "help": "One or more hostnames to associate with this certificate as an SNI. This is a sugar parameter that will, under the hood, create an SNI object and associate it with this certificate for your convenience."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/certificates/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/certificates/{id}"
+    }
+  }
+}

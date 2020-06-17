@@ -1,0 +1,81 @@
+{
+  "name": "targets",
+  "supportKongVersions": ["0.14"],
+  "description": "",
+  "showPageTitleBar": false,
+  "listByPage": {
+    "showByKeywords": true,
+    "url": "/upstreams/{$scope_parent_entity_data.id}/targets",
+    "method": "GET",
+    "searchTarget": "TARGETS"
+  },
+  "buttons": [
+    {
+      "icon": "PLUS",
+      "text": "ADD TARGET",
+      "actionType": "openModal",
+      "modal": {
+        "name": "entityCreateUpdateModal",
+        "modalName": "target",
+        "config": {
+          "entityName": "targets"
+        }
+      }
+    }
+  ],
+  "columns": [
+    {
+      "title": "",
+      "align": "left",
+      "field": {
+        "type": "raw_view"
+      }
+    },
+    {
+      "title": "target",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "target"
+      }
+    },
+    {
+      "title": "weight",
+      "align": "left",
+      "field": {
+        "type": "normal",
+        "fieldName": "weight"
+      }
+    },
+    {
+      "title": "created at",
+      "align": "left",
+      "field": {
+        "type": "format",
+        "fieldName": "created_at",
+        "config": {
+          "method": "_format_date"
+        }
+      }
+    },
+    {
+      "title": "actions",
+      "align": "left",
+      "fields": [
+        {
+          "type": "action",
+          "config": {
+            "icon": "lajitong",
+            "text": "delete",
+            "actionType": "callAPI",
+            "confirm": "Are you sure to delete it?",
+            "api": {
+              "url": "/upstreams/{upstream_id}/targets/{id}",
+              "method": "DELETE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "syslog",
+  "functionality": "Logging",
+  "icon": "/images/plugins/syslog.png",
+  "hubDesc": "Send request and response logs to Syslog",
+  "description": "Log request and response data to Syslog.",
+  "supportKongVersions": [
+    "0.14"
+  ],
+  "scopeToConsumerIdField": {
+    "name": "consumer_id"
+  },
+  "fields": [
+    {
+      "name": "successful_severity",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity assigned to the all successful requests with response status code less then 400 ."
+    },
+    {
+      "name": "client_errors_severity",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity assigned to the all failed requests with response status code 400 or higher but less than 500."
+    },
+    {
+      "name": "server_errors_severity",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity assigned to the all failed requests with response status code 500 or higher."
+    },
+    {
+      "name": "log_level",
+      "component": "Select",
+      "type": "string",
+      "value": "info",
+      "restrict": "optional",
+      "options": [
+        "debug",
+        "info",
+        "warn",
+        "error"
+      ],
+      "help": "An optional logging severity, any request with equal or higher severity will be logged to System log."
+    }
+  ],
+  "methods": {
+    "add": {
+      "method": "POST",
+      "url": "/plugins/"
+    },
+    "update": {
+      "method": "PATCH",
+      "url": "/plugins/{id}"
+    }
+  }
+}
