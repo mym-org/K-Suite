@@ -114,7 +114,7 @@ class EditPlugin extends React.Component {
     const {httpAgent} = this.props.commonStore;
 
     const requestBody = getFieldsValue();
-
+    requestBody.target = "PLUGINS";
     //处理数据
     for (let key in requestBody) {
 
