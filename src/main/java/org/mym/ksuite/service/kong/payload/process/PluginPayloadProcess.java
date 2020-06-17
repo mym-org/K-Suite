@@ -3,17 +3,29 @@ package org.mym.ksuite.service.kong.payload.process;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.mym.ksuite.em.KongEntity;
+import org.mym.ksuite.service.kong.IKongPluginModelSv;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 /**
+ * 不同插件在不同Kong版本的config.anonymous 的schema要求各不一样,必须独立处理
  * @author zhangchao
  */
 @Service
 @Slf4j
 public class PluginPayloadProcess implements IKongPayloadProcess {
 
+    private static final String CONFIG = "config";
+
     private static final String CONFIG_ANONYMOUS = "anonymous";
+
+    private static final String CONFIG_NAME = "name";
+
+    private static final String FIELD_NONE_VALUE = "none_value";
+
+    @Autowired
+    IKongPluginModelSv kongPluginModelSv;
 
     @Override
     public KongEntity apply() {
@@ -25,20 +37,28 @@ public class PluginPayloadProcess implements IKongPayloadProcess {
         if (payload == null) {
             return;
         }
-        if (!payload.containsKey(CONFIG_ANONYMOUS)) {
+        if (!payload.containsKey(CONFIG)){
             return;
         }
-        String anonymous = payload.getString(CONFIG_ANONYMOUS);
+        JSONObject config = payload.getJSONObject(CONFIG);
+        if (!config.containsKey(CONFIG_ANONYMOUS)) {
+            return;
+        }
+        String anonymous = config.getString(CONFIG_ANONYMOUS);
         if (anonymous != null) {
             return;
         }
-        switch (httpMethod) {
-            case PATCH:
-                payload.put(CONFIG_ANONYMOUS, "");
-                break;
-            case POST:
-                payload.remove(CONFIG_ANONYMOUS);
-                break;
+        String name = payload.getString(CONFIG_NAME);
+        JSONObject pluginModel = kongPluginModelSv.getPluginModel(name);
+        if (pluginModel==null){
+            return;
+        }
+        JSONObject fieldModel = kongPluginModelSv.getPluginField(pluginModel,CONFIG_ANONYMOUS);
+        if (fieldModel==null){
+            return;
+        }
+        if (fieldModel.containsKey(FIELD_NONE_VALUE)){
+            config.put(CONFIG_ANONYMOUS,fieldModel.get(FIELD_NONE_VALUE));
         }
         return;
 

@@ -34,4 +34,13 @@ public interface IKongPluginModelSv {
      * @return
      */
     JSONObject getPluginModel(String pluginName);
+
+    /**
+     * get field of model
+     *
+     * @param model
+     * @param fieldName
+     * @return
+     */
+    JSONObject getPluginField(JSONObject model, String fieldName);
 }
