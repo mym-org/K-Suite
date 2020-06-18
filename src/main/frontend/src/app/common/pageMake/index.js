@@ -310,7 +310,7 @@ export default class PageMake extends React.Component {
       const {resultCode, resultMessage = ''} = res;
       if (resultCode === '000000') {
         message.success('Success!')
-        self.getDataSource(keywords)
+        self.getDataSource(keywords);
       } else {
         message.error(resultMessage)
       }
