@@ -28,7 +28,7 @@
 
 # 对Kong的兼容性
 
-从2016年起，团队开始关注Kong Community，并在B端大型企业实践微服务，基于kong管理了数百个微服务模块，目前有三个版本（0.11、1.2、2.0(latest)）在线。 因此，K-Suite第一个Released版本首先对这三个版本的兼容性做了验证支持。如果您要支持某个kong的历史版本，可以联系我们 [choaryzhang@163.com](mailto:choaryzhang@163.com),我们将会在较短时间内调整Model后并
+从2016年起，团队开始关注Kong Community，并在B端大型企业实践微服务，基于kong管理了数百个微服务模块，目前支持的kong 社区版版本（0.11、1.2、2.0、latest）在线。 因此，K-Suite第一个Released版本首先对这三个版本的兼容性做了验证支持。如果您要支持某个kong的历史版本，可以联系我们 [choaryzhang@163.com](mailto:choaryzhang@163.com),我们将会在较短时间内调整Model后并
 做兼容性tests推出K-Suite部署镜像。
 
 # 先决条件
@@ -138,7 +138,7 @@ spring
 # FAQ
 
 ## 1. 如何使K-Suite能支持Kong的某个中间版本？
-目前我们提供的release版本只支撑了Kong 0.11 ,1.2, 2.0最新版本。未来会从2.0版本开始跟随社区同步支撑最新版本，并保留对历史版本的兼容。
+目前我们提供的release版本只支撑了Kong 0.11 ,1.2, 2.0,latest。未来会从2.0版本开始跟随社区同步支撑最新版本，并保留对历史版本的兼容。
 
 - 如果您需要我们支持某个历史版本，您可以告知我们，我们可以单独调整配置来支持
 - 如果您需要尝试下自己基于源码来compile build一个版本，在您对Kong底层schema了解的情况下，您可以通过修改一下源码包下的配置model来支持。
