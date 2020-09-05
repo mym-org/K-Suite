@@ -4,7 +4,7 @@
   "icon": "/images/plugins/file-log.png",
   "hubDesc": "Append request and response data to a log file on disk",
   "description": "Append request and response data to a log file on disk.",
-  "supportKongVersions": ["1.2"],
+  "supportKongVersions": ["1.2","2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

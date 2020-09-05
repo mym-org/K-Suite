@@ -4,7 +4,7 @@
   "icon": "/images/plugins/key-auth.png",
   "hubDesc": "Add key authentication to your Services",
   "description": "Add key authentication (also sometimes referred to as an API key) to a Service or a Route.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "no_consumer": true,
   "fields": [
     {

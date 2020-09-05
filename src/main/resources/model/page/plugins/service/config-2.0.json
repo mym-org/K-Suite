@@ -1,6 +1,6 @@
 {
   "name": "service.plugins",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "description": "service's plugins.",
   "showPageTitleBar": false,
   "listByPage": {

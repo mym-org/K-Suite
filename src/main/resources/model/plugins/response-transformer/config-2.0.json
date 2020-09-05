@@ -5,7 +5,7 @@
   "icon": "/images/plugins/response-transformer.png",
   "hubDesc": "Modify the upstream response before returning it to the client",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "no_consumer": true,
   "description": "Transform the response sent by the upstream server on the fly on Kong, before returning the response to the client.",

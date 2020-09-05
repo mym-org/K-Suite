@@ -1,6 +1,6 @@
 {
   "name": "routes",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "description": "The Route entities defines rules to match client requests. Each Route is associated with a Service, and a Service may have multiple Routes associated to it. Every request matching a given Route will be proxied to its associated Service.",
   "showPageTitleBar": true,
   "listByPage": {

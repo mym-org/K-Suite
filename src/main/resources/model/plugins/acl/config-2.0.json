@@ -5,7 +5,7 @@
   "icon": "/images/plugins/acl.png",
   "hubDesc": "Control which consumers can access Services",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "no_consumer": true,
   "description": "Restrict access to a Service or a Route by whitelisting or blacklisting consumers using arbitrary ACL group names.",

@@ -1,7 +1,8 @@
 {
   "name": "targets",
   "supportKongVersions": [
-    "2.0"
+    "2.0",
+    "2.1"
   ],
   "description": "A target is an ip address/hostname with a port that identifies an instance of a backend service. Every upstream can have many targets, and the targets can be dynamically added. Changes are effectuated on the fly.",
   "fields": [

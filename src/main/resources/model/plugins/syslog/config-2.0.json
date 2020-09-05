@@ -5,7 +5,7 @@
   "hubDesc": "Send request and response logs to Syslog",
   "description": "Log request and response data to Syslog.",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "scopeToConsumerIdField": {
     "name": "consumer.id"

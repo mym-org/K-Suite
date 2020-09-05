@@ -1,7 +1,7 @@
 {
   "name": "acls",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "You can have more than one group associated to a consumer.",
   "fields": [

@@ -1,7 +1,7 @@
 {
   "name": "upstreams",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "The upstream object represents a virtual hostname and can be used to load balance incoming requests over multiple services (targets)",
   "fields": [

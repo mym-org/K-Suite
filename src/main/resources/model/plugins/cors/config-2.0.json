@@ -6,7 +6,7 @@
   "hubDesc": "Allow developers to make requests from the browser",
   "description": "Easily add Cross-origin resource sharing (CORS) to a Service, a Route by enabling this plugin.",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "no_consumer": true,
   "fields": [

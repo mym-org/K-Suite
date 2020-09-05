@@ -2,7 +2,7 @@
   "name": "response-ratelimiting",
   "functionality": "Traffic Control",
   "icon": "/images/plugins/response-ratelimiting.png",
-  "supportKongVersions":["2.0"],
+  "supportKongVersions":["2.0","2.1"],
   "hubDesc": "Rate-Limiting based on a custom response header value",
   "description": "This plugin allows you to limit the number of requests a developer can make based on a custom response header returned by the upstream service. You can arbitrary set as many rate-limiting objects (or quotas) as you want and instruct Kong to increase or decrease them by any number of units. Each custom rate-limiting object can limit the inbound requests per seconds, minutes, hours, days, months or years.\n\nIf the underlying Service/Route (or deprecated API entity) has no authentication layer, the Client IP address will be used, otherwise the Consumer will be used if an authentication plugin has been configured.",
   "scopeToConsumerIdField": {

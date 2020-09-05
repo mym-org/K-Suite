@@ -4,7 +4,7 @@
   "icon": "/images/plugins/datadog.png",
   "hubDesc": "Visualize metrics on Datadog",
   "description": "Log metrics for a Service, Route to a local Datadog agent.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

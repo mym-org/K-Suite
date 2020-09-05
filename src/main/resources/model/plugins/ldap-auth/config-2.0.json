@@ -6,7 +6,7 @@
   "hubDesc": "Integrate Kong with a LDAP server",
   "description": "Add LDAP Bind Authentication to a Route with username and password protection. The plugin will check for valid credentials in the <code class=\"highlighter-rouge\">Proxy-Authorization</code> and <code class=\"highlighter-rouge\">Authorization</code> header (in this order).",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "no_consumer": true,
   "fields": [

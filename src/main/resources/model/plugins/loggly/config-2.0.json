@@ -4,7 +4,7 @@
   "icon": "/images/plugins/loggly.png",
   "hubDesc": "Send request and response logs to Loggly",
   "description": "Log request and response data over UDP to Loggly.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

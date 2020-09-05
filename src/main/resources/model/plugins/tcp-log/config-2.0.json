@@ -4,7 +4,7 @@
   "icon": "/images/plugins/tcp-log.png",
   "hubDesc": "Send request and response logs to a TCP server",
   "description": "Log request and response data to a TCP server.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

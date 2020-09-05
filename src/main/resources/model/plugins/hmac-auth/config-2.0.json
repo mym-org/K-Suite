@@ -5,7 +5,7 @@
   "hubDesc": "Add HMAC Authentication to your Services",
   "description": "Add HMAC Signature authentication to a Service or a Route to establish the integrity of incoming requests. The plugin will validate the digital signature sent in the Proxy-Authorization or Authorization header (in this order). This plugin implementation is based off the draft-cavage-http-signatures draft with a slightly different signature scheme.",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "no_consumer": true,
   "fields": [

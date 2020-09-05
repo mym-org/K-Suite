@@ -2,7 +2,7 @@
   "name": "request-transformer",
   "functionality": "Transformations",
   "icon": "/images/plugins/request-transformer.png",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "hubDesc": "Modify the request before hitting the upstream server",
   "description": "Transform the request sent by a client on the fly on Kong, before hitting the upstream server.Plugin performs the response transformation in following order\n\nremove –> rename –> replace –> add –> append",
   "scopeToConsumerIdField": {
