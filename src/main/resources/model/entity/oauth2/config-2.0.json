@@ -1,7 +1,7 @@
 {
   "name": "oauth2",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "You can finally provision new OAuth 2.0 credentials (also called “OAuth applications”) ",
   "no_consumer": true,

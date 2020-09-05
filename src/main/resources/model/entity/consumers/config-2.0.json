@@ -1,7 +1,7 @@
 {
   "name": "consumers",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "The Consumer object represents a consumer - or a user - of an API",
   "fields": [

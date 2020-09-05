@@ -4,7 +4,7 @@
   "icon": "/images/plugins/correlation-id.png",
   "hubDesc": "Correlate requests and responses using a unique ID",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "Correlate requests and responses using a unique ID transmitted over an HTTP header.",
   "scopeToConsumerIdField": {

@@ -5,7 +5,7 @@
   "icon": "/images/plugins/request-size-limiting.png",
   "hubDesc": "Block requests with bodies greater than a specific size",
   "description": "Block incoming requests whose body is greater than a specific size in megabytes.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

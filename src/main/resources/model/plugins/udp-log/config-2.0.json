@@ -5,7 +5,7 @@
   "hubDesc": "Send request and response logs to an UDP server",
   "description": "Log request and response data to an UDP server.",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "scopeToConsumerIdField": {
     "name": "consumer.id"

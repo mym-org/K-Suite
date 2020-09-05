@@ -1,6 +1,6 @@
 {
   "name": "services",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "description": "Service entities, as the name implies, are abstractions of each of your own upstream services. Examples of Services would be a data transformation microservice, a billing API, etc.",
   "showPageTitleBar": true,
   "listByPage": {

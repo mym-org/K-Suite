@@ -4,7 +4,7 @@
   "icon": "/images/plugins/bot-detection.png",
   "hubDesc": "Detect and block bots or custom clients",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "Protects a Service or a Route from most common bots and has the capability of whitelisting and blacklisting custom clients.",
   "no_consumer": true,

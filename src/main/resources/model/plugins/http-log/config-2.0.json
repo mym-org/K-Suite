@@ -4,7 +4,7 @@
   "icon": "/images/plugins/http-log.png",
   "hubDesc": "Send request and response logs to an HTTP server",
   "description": "Send request and response logs to an HTTP server.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

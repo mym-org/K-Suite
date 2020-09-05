@@ -1,6 +1,6 @@
 {
   "name": "upstreams",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "description": "The upstream object represents a virtual hostname and can be used to loadbalance incoming requests over multiple services (targets). So for example an upstream named <span class=\"code-text\">service.v1.xyz</span> with an API object created with an <span class=\"code-text\">upstream_url=https://service.v1.xyz/some/path</span>. Requests for this API would be proxied to the targets defined within the upstream",
   "showPageTitleBar": true,
   "listByPage": {

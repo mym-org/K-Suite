@@ -5,7 +5,7 @@
   "icon": "/images/plugins/grpc-web.png",
   "hubDesc": "Allow browser clients to call gRPC services.",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "scopeToConsumerIdField": {
     "name": "consumer.id"

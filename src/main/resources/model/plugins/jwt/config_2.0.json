@@ -5,7 +5,7 @@
   "icon": "/images/plugins/jwt.png",
   "hubDesc": "Verify and authenticate JSON Web Tokens",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "Verify requests containing HS256 or RS256 signed JSON Web Tokens (as specified in RFC 7519). Each of your Consumers will have JWT credentials (public and secret keys) which must be used to sign their JWTs.",
   "no_consumer": true,

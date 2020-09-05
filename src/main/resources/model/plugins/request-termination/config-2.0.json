@@ -4,7 +4,7 @@
   "icon": "/images/plugins/request-termination.png",
   "hubDesc": "Terminates all requests with a specific response",
   "description": "This plugin terminates incoming requests with a specified status code and message. This allows to (temporarily) stop traffic on a Service or a Route, or even block a Consumer.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },

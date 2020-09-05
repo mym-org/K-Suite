@@ -1,7 +1,7 @@
 {
   "name": "routes",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "Route entities define rules to match client requests. Each Route is\nassociated with a Service, and a Service may have multiple Routes associated to\nit. Every request matching a given Route will be proxied to its associated\nService",
   "fields": [

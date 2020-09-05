@@ -4,7 +4,7 @@
   "functionality": "Authentication",
   "icon": "/images/plugins/basic-auth.png",
   "hubDesc": "Add Basic Authentication to your Services",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "description": "Add Basic Authentication to a Service or a Route with username and password protection. The plugin will check for valid credentials in the <code class=\"highlighter-rouge\">Proxy-Authorization</code> and <code class=\"highlighter-rouge\">Authorization</code> header (in this order).",
   "no_consumer": true,
   "fields": [

@@ -5,7 +5,7 @@
   "icon": "/images/plugins/aws-lambda.png",
   "hubDesc": "Invoke and manage AWS Lambda functions from Kong",
   "supportKongVersions": [
-    "2.0"
+    "2.0","2.1"
   ],
   "description": "Invoke an <a href=\"https://aws.amazon.com/lambda/\">AWS Lambda</a> function from Kong. It\ncan be used in combination with other request plugins to secure, manage, or\nextend the function.",
   "scopeToConsumerIdField": {

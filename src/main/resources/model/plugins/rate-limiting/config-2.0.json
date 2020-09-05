@@ -4,7 +4,7 @@
   "icon": "/images/plugins/rate-limiting.png",
   "hubDesc": "Rate-limit how many HTTP requests a developer can make",
   "description": "Rate limit how many HTTP requests a developer can make in a given period of seconds, minutes, hours, days, months or years. If the API has no authentication layer, the <strong>Client IP</strong> address will be used, otherwise the Consumer will be used if an authentication plugin has been configured.",
-  "supportKongVersions": ["2.0"],
+  "supportKongVersions": ["2.0","2.1"],
   "scopeToConsumerIdField": {
     "name": "consumer.id"
   },
