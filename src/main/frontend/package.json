@@ -43,7 +43,7 @@
     "loadsh": "0.0.4",
     "mobx": "^4.8.0",
     "mobx-react": "^5.2.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.10.0",
     "normalize.css": "^8.0.0",
     "object-assign": "4.1.1",
