@@ -238,9 +238,9 @@ ansi-styles@^3.0.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-antd@^3.11.4:
-  version "3.26.17"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.26.17.tgz#2064ad535bcffceaa76e39ed8ff5d092a9fb849e"
+antd@^3.26.17:
+  version "3.26.20"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-3.26.20.tgz#f3f570efaaa5950a144942f21eb2aaaa088e9407"
   dependencies:
     "@ant-design/create-react-context" "^0.2.4"
     "@ant-design/icons" "~2.1.1"
@@ -2423,8 +2423,8 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
 
 deep-equal@^1.0.1:
   version "1.0.1"
@@ -3975,7 +3975,7 @@ immutable@^3.7.4:
 
 immutable@~3.7.4:
   version "3.7.6"
-  resolved "http://registry.npmjs.org/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
+  resolved "https://registry.npmjs.org/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
 
 import-lazy@^2.1.0:
   version "2.1.0"
